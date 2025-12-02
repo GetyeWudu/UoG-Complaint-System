@@ -6,7 +6,7 @@ urlpatterns = [
     path('register/', views.UserRegistrationView.as_view(), name='register'),
     path('login/', views.CustomAuthToken.as_view(), name='login'),
     path('logout/', views.LogoutView.as_view(), name='logout'),
-    
+    #new comment
     # Password Management
     path('password-reset/request/', views.PasswordResetRequestView.as_view(), name='password-reset-request'),
     path('password-reset/confirm/', views.PasswordResetConfirmView.as_view(), name='password-reset-confirm'),

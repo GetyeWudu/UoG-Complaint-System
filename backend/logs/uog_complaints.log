@@ -2462,3 +2462,5 @@ WARNING 2025-12-02 09:25:54,646 log Unauthorized: /api/auth/logout/
 WARNING 2025-12-02 09:25:54,649 log Unauthorized: /api/auth/logout/
 INFO 2025-12-02 10:27:16,192 autoreload Watching for file changes with StatReloader
 WARNING 2025-12-02 10:29:03,541 log Not Found: /favicon.ico
+INFO 2025-12-02 11:00:01,777 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\accounts\urls.py changed, reloading.
+INFO 2025-12-02 11:00:05,016 autoreload Watching for file changes with StatReloader
