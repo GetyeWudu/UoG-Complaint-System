@@ -1,0 +1,168 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "logout": "Logout",
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "username": "Username",
+    "password": "Password",
+    "dashboard": "Dashboard",
+    "complaints": "Complaints",
+    "newComplaint": "New Complaint",
+    "trackComplaint": "Track Complaint",
+    "search": "Search",
+    "filter": "Filter",
+    "status": "Status",
+    "priority": "Priority",
+    "category": "Category",
+    "location": "Location",
+    "date": "Date",
+    "actions": "Actions",
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "close": "Close",
+    "loading": "Loading...",
+    "noData": "No data available",
+    "language": "Language",
+    "english": "English",
+    "amharic": "Amharic"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "stats": {
+      "total": "Total Complaints",
+      "new": "New",
+      "inProgress": "In Progress",
+      "resolved": "Resolved",
+      "closed": "Closed",
+      "slaBreaches": "SLA Breaches",
+      "averageResponseTime": "Avg Response Time",
+      "averageRating": "Average Rating"
+    },
+    "student": {
+      "myComplaints": "My Complaints",
+      "openComplaints": "Open Complaints",
+      "recentActivity": "Recent Activity",
+      "slaCountdown": "SLA Countdown"
+    },
+    "dean": {
+      "collegeComplaints": "College Complaints",
+      "byDepartment": "By Department",
+      "pendingApprovals": "Pending Approvals",
+      "topCategories": "Top Categories"
+    },
+    "admin": {
+      "systemOverview": "System Overview",
+      "allComplaints": "All Complaints",
+      "byCampus": "By Campus",
+      "recentActivity": "Recent Activity"
+    },
+    "deptHead": {
+      "departmentComplaints": "Department Complaints",
+      "staffWorkload": "Staff Workload",
+      "pendingApprovals": "Pending Approvals"
+    },
+    "maintenance": {
+      "assignedTasks": "Assigned Tasks",
+      "openTasks": "Open Tasks",
+      "completedTasks": "Completed Tasks"
+    },
+    "proctor": {
+      "examIncidents": "Exam Incidents",
+      "securityIssues": "Security Issues",
+      "pendingInvestigation": "Pending Investigation"
+    },
+    "campusDirector": {
+      "campusOverview": "Campus Overview",
+      "criticalIncidents": "Critical Incidents",
+      "slaCompliance": "SLA Compliance"
+    },
+    "superAdmin": {
+      "systemStats": "System Statistics",
+      "userActivity": "User Activity",
+      "systemHealth": "System Health"
+    }
+  },
+  "complaint": {
+    "title": "Title",
+    "description": "Description",
+    "location": "Location",
+    "campus": "Campus",
+    "trackingId": "Tracking ID",
+    "createdAt": "Created At",
+    "updatedAt": "Updated At",
+    "submitter": "Submitter",
+    "assignedTo": "Assigned To",
+    "submitNew": "Submit New Complaint",
+    "titlePlaceholder": "Brief description of the issue",
+    "descriptionPlaceholder": "Provide detailed information about your complaint (You can write in Amharic)",
+    "locationPlaceholder": "e.g., Room 301, Building A",
+    "selectCampus": "Select Campus",
+    "attachFiles": "Attach Files (Optional)",
+    "fileHint": "Max 10MB per file. Allowed: JPG, PNG, GIF, PDF",
+    "filesSelected": "file(s) selected",
+    "submit": "Submit Complaint",
+    "submitting": "Submitting...",
+    "status": {
+      "new": "New",
+      "assigned": "Assigned",
+      "inProgress": "In Progress",
+      "pending": "Pending",
+      "resolved": "Resolved",
+      "closed": "Closed",
+      "rejected": "Rejected"
+    },
+    "priority": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "critical": "Critical"
+    },
+    "addComment": "Add Comment",
+    "uploadFile": "Upload File",
+    "updateStatus": "Update Status",
+    "assignTo": "Assign To",
+    "escalate": "Escalate",
+    "approve": "Approve",
+    "reject": "Reject"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "noNotifications": "No new notifications",
+    "markAllRead": "Mark all as read"
+  },
+  "login": {
+    "subtitle": "Complaint Management System",
+    "username": "Username / Email",
+    "password": "Password",
+    "usernamePlaceholder": "student@test.com",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account? Register",
+    "trackAnonymous": "Track Complaint Anonymously",
+    "loggingIn": "Logging in...",
+    "testAccounts": "Test Accounts:"
+  },
+  "register": {
+    "title": "Create Account",
+    "subtitle": "Register for UoG Complaint System",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "role": "Role",
+    "confirmPassword": "Confirm Password",
+    "passwordHint": "Min 8 chars, uppercase, lowercase, digit, special char",
+    "passwordMismatch": "Passwords do not match",
+    "registering": "Creating Account...",
+    "hasAccount": "Already have an account? Login",
+    "roles": {
+      "student": "Student",
+      "academic": "Academic Staff",
+      "nonAcademic": "Non-academic Staff"
+    }
+  }
+}
+

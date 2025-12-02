@@ -88,6 +88,34 @@ function TrackComplaint() {
               <h3 className="font-semibold text-gray-700 mb-1">Submitted</h3>
               <p className="text-gray-900">{new Date(complaint.created_at).toLocaleString()}</p>
             </div>
+
+            {/* Resolution Section */}
+            {complaint.status === 'resolved' && complaint.resolution && (
+              <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded">
+                <h3 className="font-semibold text-green-800 mb-2">✓ Resolution</h3>
+                <p className="text-gray-900">{complaint.resolution}</p>
+              </div>
+            )}
+
+            {/* Comments Section */}
+            {complaint.comments && complaint.comments.length > 0 && (
+              <div className="border-t pt-4 mt-4">
+                <h3 className="font-semibold text-gray-700 mb-3">Comments ({complaint.comments.length})</h3>
+                <div className="space-y-3">
+                  {complaint.comments.map((comment) => (
+                    <div key={comment.id} className="bg-white p-4 rounded-lg border border-gray-200">
+                      <div className="flex justify-between items-start mb-2">
+                        <span className="font-medium text-gray-900">{comment.author_name}</span>
+                        <span className="text-sm text-gray-500">
+                          {new Date(comment.created_at).toLocaleString()}
+                        </span>
+                      </div>
+                      <p className="text-gray-700">{comment.content}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         )}
 

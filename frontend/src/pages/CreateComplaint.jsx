@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import api from '../api';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 
 function CreateComplaint() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -69,10 +72,17 @@ function CreateComplaint() {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
 
-      alert(`Complaint submitted successfully! Tracking ID: ${response.data.tracking_id}`);
-      navigate('/dashboard');
+      if (response.data && response.data.tracking_id) {
+        alert(`Complaint submitted successfully! Tracking ID: ${response.data.tracking_id}`);
+        navigate('/dashboard');
+      } else {
+        throw new Error('Invalid response from server');
+      }
     } catch (error) {
-      setError(error.response?.data?.error || 'Failed to submit complaint');
+      console.error('Submit error:', error);
+      const errorMsg = error.response?.data?.error || error.response?.data?.detail || error.message || 'Failed to submit complaint';
+      setError(errorMsg);
+      alert('Error: ' + errorMsg);
     } finally {
       setLoading(false);
     }
@@ -93,7 +103,10 @@ function CreateComplaint() {
     <div className="min-h-screen bg-gray-100 py-8">
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="bg-white rounded-lg shadow-lg p-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-6">Submit New Complaint</h1>
+          <div className="flex justify-between items-center mb-6">
+            <h1 className="text-3xl font-bold text-gray-800">{t('complaint.submitNew')}</h1>
+            <LanguageSwitcher />
+          </div>
 
           {error && (
             <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6">
@@ -104,14 +117,14 @@ function CreateComplaint() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Title *
+                {t('complaint.title')} *
               </label>
               <input
                 type="text"
                 name="title"
                 required
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                placeholder="Brief description of the issue"
+                placeholder={t('complaint.titlePlaceholder')}
                 value={formData.title}
                 onChange={handleChange}
               />
@@ -119,14 +132,14 @@ function CreateComplaint() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Description *
+                {t('complaint.description')} *
               </label>
               <textarea
                 name="description"
                 required
                 rows="5"
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                placeholder="Provide detailed information about your complaint"
+                placeholder={t('complaint.descriptionPlaceholder')}
                 value={formData.description}
                 onChange={handleChange}
               />
@@ -134,14 +147,14 @@ function CreateComplaint() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Location *
+                {t('complaint.location')} *
               </label>
               <input
                 type="text"
                 name="location"
                 required
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                placeholder="e.g., Room 301, Building A"
+                placeholder={t('complaint.locationPlaceholder')}
                 value={formData.location}
                 onChange={handleChange}
               />
@@ -149,7 +162,7 @@ function CreateComplaint() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Campus
+                {t('complaint.campus')}
               </label>
               <select
                 name="campus"
@@ -157,7 +170,7 @@ function CreateComplaint() {
                 value={formData.campus}
                 onChange={handleChange}
               >
-                <option value="">Select Campus</option>
+                <option value="">{t('complaint.selectCampus')}</option>
                 {campuses.map(campus => (
                   <option key={campus.id} value={campus.id}>{campus.name}</option>
                 ))}
@@ -166,7 +179,7 @@ function CreateComplaint() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Attach Files (Optional)
+                {t('complaint.attachFiles')}
               </label>
               <input
                 type="file"
@@ -176,11 +189,11 @@ function CreateComplaint() {
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
               />
               <p className="text-xs text-gray-500 mt-1">
-                Max 10MB per file. Allowed: JPG, PNG, GIF, PDF
+                {t('complaint.fileHint')}
               </p>
               {files.length > 0 && (
                 <div className="mt-2 text-sm text-gray-600">
-                  {files.length} file(s) selected
+                  {files.length} {t('complaint.filesSelected')}
                 </div>
               )}
             </div>
@@ -191,14 +204,14 @@ function CreateComplaint() {
                 disabled={loading}
                 className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition disabled:opacity-50"
               >
-                {loading ? 'Submitting...' : 'Submit Complaint'}
+                {loading ? t('complaint.submitting') : t('complaint.submit')}
               </button>
               <button
                 type="button"
                 onClick={() => navigate('/dashboard')}
                 className="px-6 py-3 border border-gray-300 rounded-lg font-semibold hover:bg-gray-50 transition"
               >
-                Cancel
+                {t('common.cancel')}
               </button>
             </div>
           </form>

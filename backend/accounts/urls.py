@@ -18,6 +18,7 @@ urlpatterns = [
     
     # User Profile
     path('me/', views.CurrentUserView.as_view(), name='current-user'),
+    path('users/', views.UserListView.as_view(), name='user-list'),
     
     # Utility Endpoints
     path('campuses/', views.CampusListView.as_view(), name='campus-list'),

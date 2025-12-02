@@ -102,6 +102,50 @@ class Complaint(models.Model):
     # Resolution
     resolution_notes = models.TextField(blank=True)
     rejection_reason = models.TextField(blank=True)
+    
+    # Language Support
+    language = models.CharField(max_length=10, default='en', help_text="Language code: 'en' or 'am'")
+    title_translated = models.CharField(max_length=255, blank=True, help_text="English translation of title")
+    description_translated = models.TextField(blank=True, help_text="English translation of description")
+    translation_confidence = models.FloatField(null=True, blank=True, help_text="Translation confidence score 0-1")
+    translation_provider = models.CharField(max_length=50, blank=True, help_text="Translation service used")
+    
+    # SLA Tracking
+    sla_response_hours = models.IntegerField(null=True, blank=True, help_text="SLA response time in hours")
+    sla_resolution_hours = models.IntegerField(null=True, blank=True, help_text="SLA resolution time in hours")
+    first_response_at = models.DateTimeField(null=True, blank=True, help_text="When first response was given")
+    sla_response_breached = models.BooleanField(default=False, help_text="Whether response SLA was breached")
+    sla_resolution_breached = models.BooleanField(default=False, help_text="Whether resolution SLA was breached")
+    sla_breach_notified_at = models.DateTimeField(null=True, blank=True, help_text="When SLA breach was notified")
+    
+    # Escalation
+    escalated = models.BooleanField(default=False)
+    escalated_at = models.DateTimeField(null=True, blank=True)
+    escalated_to = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True, 
+                                     related_name='escalated_complaints', help_text="User complaint was escalated to")
+    escalation_reason = models.TextField(blank=True)
+    escalation_level = models.IntegerField(default=0, help_text="Escalation level: 0=none, 1=Dept Head, 2=Dean, 3=Campus Director, 4=Admin")
+    
+    # Approval Workflow
+    requires_approval = models.BooleanField(default=False)
+    approved_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True,
+                                    related_name='approved_complaints')
+    approved_at = models.DateTimeField(null=True, blank=True)
+    approval_notes = models.TextField(blank=True)
+    
+    # AI Analysis (Enhanced)
+    ai_urgency_confidence = models.FloatField(null=True, blank=True, help_text="AI confidence in urgency assessment")
+    ai_urgency_reason = models.TextField(blank=True, help_text="Explanation of AI urgency assessment")
+    sentiment_score = models.FloatField(null=True, blank=True, help_text="Sentiment analysis score (-1 to 1)")
+    sentiment_label = models.CharField(max_length=20, blank=True, help_text="Sentiment label: positive/negative/neutral")
+    is_duplicate = models.BooleanField(default=False)
+    duplicate_of = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='duplicates')
+    ai_summary = models.TextField(blank=True, help_text="AI-generated summary for quick triage")
+    
+    # Reopened tracking
+    reopened = models.BooleanField(default=False)
+    reopened_at = models.DateTimeField(null=True, blank=True)
+    reopened_count = models.IntegerField(default=0)
 
     def __str__(self):
         return f"{self.tracking_id} - {self.title}"
@@ -113,12 +157,63 @@ class Complaint(models.Model):
             return delta.total_seconds() / 3600
         return None
     
+    def get_display_title(self, user_language='en'):
+        """Get title in user's preferred language"""
+        if user_language == 'am' and self.language == 'am':
+            return self.title
+        elif user_language == 'en' and self.language == 'am' and self.title_translated:
+            return self.title_translated
+        return self.title
+    
+    def get_display_description(self, user_language='en'):
+        """Get description in user's preferred language"""
+        if user_language == 'am' and self.language == 'am':
+            return self.description
+        elif user_language == 'en' and self.language == 'am' and self.description_translated:
+            return self.description_translated
+        return self.description
+    
+    def time_to_first_response(self):
+        """Calculate time to first response in hours"""
+        if self.first_response_at:
+            delta = self.first_response_at - self.created_at
+            return delta.total_seconds() / 3600
+        return None
+    
+    def check_sla_breach(self):
+        """Check if SLA is breached and update flags"""
+        from django.utils import timezone
+        now = timezone.now()
+        
+        if not self.sla_response_hours or not self.sla_resolution_hours:
+            return False
+        
+        # Check response SLA
+        if not self.first_response_at:
+            hours_since_creation = (now - self.created_at).total_seconds() / 3600
+            if hours_since_creation > self.sla_response_hours:
+                self.sla_response_breached = True
+                return True
+        
+        # Check resolution SLA
+        if self.status not in ['resolved', 'closed']:
+            hours_since_creation = (now - self.created_at).total_seconds() / 3600
+            if hours_since_creation > self.sla_resolution_hours:
+                self.sla_resolution_breached = True
+                return True
+        
+        return False
+    
     class Meta:
         ordering = ['-created_at']
         indexes = [
             models.Index(fields=['status', '-created_at']),
             models.Index(fields=['assigned_to', 'status']),
             models.Index(fields=['campus', 'status']),
+            models.Index(fields=['language']),
+            models.Index(fields=['escalated', 'escalation_level']),
+            models.Index(fields=['sla_response_breached', 'sla_resolution_breached']),
+            models.Index(fields=['is_duplicate']),
         ]
 
 
@@ -136,6 +231,9 @@ class ComplaintEvent(models.Model):
         ('closed', 'Closed'),
         ('rejected', 'Rejected'),
         ('reopened', 'Reopened'),
+        ('escalated', 'Escalated'),
+        ('sla_breached', 'SLA Breached'),
+        ('first_response', 'First Response'),
     ]
     
     complaint = models.ForeignKey(Complaint, on_delete=models.CASCADE, related_name='events')
@@ -266,3 +364,50 @@ class EmailTemplate(models.Model):
     
     class Meta:
         ordering = ['template_type', 'name']
+
+
+# SLA Configuration Model
+class SLAConfiguration(models.Model):
+    """Configurable SLA settings per priority level and category"""
+    name = models.CharField(max_length=100, unique=True)
+    priority = models.CharField(max_length=10, choices=Complaint.PRIORITY_CHOICES)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
+    campus = models.ForeignKey('accounts.Campus', on_delete=models.CASCADE, null=True, blank=True)
+    
+    # SLA Times (in hours)
+    response_time_hours = models.IntegerField(help_text="Time to first response in hours")
+    resolution_time_hours = models.IntegerField(help_text="Time to resolution in hours")
+    
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return f"{self.name} - {self.priority} priority"
+    
+    class Meta:
+        ordering = ['priority', 'name']
+        unique_together = [['priority', 'category', 'campus']]
+
+
+# Complaint Translation Model (for manual translations)
+class ComplaintTranslation(models.Model):
+    """Manual translations provided by admins"""
+    complaint = models.ForeignKey(Complaint, on_delete=models.CASCADE, related_name='manual_translations')
+    translated_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True)
+    
+    title_translated = models.CharField(max_length=255)
+    description_translated = models.TextField()
+    
+    from_language = models.CharField(max_length=10, default='am')
+    to_language = models.CharField(max_length=10, default='en')
+    
+    notes = models.TextField(blank=True, help_text="Translation notes or context")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return f"Translation for {self.complaint.tracking_id}"
+    
+    class Meta:
+        ordering = ['-created_at']

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Check</title>
+</head>
+<body>
+    <h1>User Role Check</h1>
+    <div id="result"></div>
+    
+    <script>
+        const user = JSON.parse(localStorage.getItem('user') || '{}');
+        const isAdmin = ['admin', 'super_admin', 'dept_head', 'proctor'].includes(user?.role);
+        
+        document.getElementById('result').innerHTML = `
+            <p><strong>User:</strong> ${JSON.stringify(user, null, 2)}</p>
+            <p><strong>Role:</strong> ${user?.role}</p>
+            <p><strong>Is Admin:</strong> ${isAdmin}</p>
+            <p><strong>Should see button:</strong> ${isAdmin ? 'YES' : 'NO'}</p>
+        `;
+    </script>
+</body>
+</html>

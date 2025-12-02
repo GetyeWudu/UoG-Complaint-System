@@ -222,3 +222,49 @@ def notify_complaint_rejected(complaint):
 def notify_complaint_closed(complaint):
     """Send notification when complaint is closed"""
     send_complaint_notification(complaint, 'closed')
+
+
+def send_sla_breach_notification(complaint):
+    """Send notification when SLA is breached"""
+    if not complaint.submitter or not complaint.submitter.email:
+        return
+    
+    recipient_email = complaint.anonymous_email if complaint.is_anonymous else complaint.submitter.email
+    recipient_name = 'User' if complaint.is_anonymous else (complaint.submitter.get_full_name() or complaint.submitter.username)
+    
+    breach_type = []
+    if complaint.sla_response_breached:
+        breach_type.append('Response')
+    if complaint.sla_resolution_breached:
+        breach_type.append('Resolution')
+    
+    subject = f'SLA Breach Alert - {complaint.tracking_id}'
+    message = f'''
+Dear {recipient_name},
+
+We wanted to inform you that your complaint has exceeded the expected response/resolution time.
+
+Complaint Details:
+- Tracking ID: {complaint.tracking_id}
+- Title: {complaint.title}
+- Breach Type: {', '.join(breach_type)}
+- Expected Response Time: {complaint.sla_response_hours} hours
+- Expected Resolution Time: {complaint.sla_resolution_hours} hours
+
+We apologize for the delay and are working to resolve this issue as quickly as possible.
+
+Best regards,
+UoG Complaint Management Team
+    '''
+    
+    try:
+        send_mail(
+            subject=subject,
+            message=message,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[recipient_email],
+            fail_silently=False,
+        )
+        logger.info(f"SLA breach notification sent to {recipient_email} for complaint {complaint.tracking_id}")
+    except Exception as e:
+        logger.error(f"Failed to send SLA breach notification: {str(e)}")

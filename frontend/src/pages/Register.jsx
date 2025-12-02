@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 
 function Register() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -29,7 +32,7 @@ function Register() {
     setError('');
 
     if (formData.password !== formData.password_confirm) {
-      setError('Passwords do not match');
+      setError(t('register.passwordMismatch'));
       return;
     }
 
@@ -46,11 +49,22 @@ function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 to-blue-700 py-12 px-4">
-      <div className="bg-white p-8 rounded-xl shadow-2xl w-full max-w-2xl">
+    <div className="min-h-screen flex items-center justify-center py-12 px-4 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #2B6CB0 0%, #3182CE 50%, #4299E1 100%)' }}>
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2"></div>
+      </div>
+
+      <div className="bg-white p-8 rounded-xl shadow-2xl w-full max-w-2xl relative z-10">
+        {/* Language Switcher */}
+        <div className="absolute top-4 right-4">
+          <LanguageSwitcher />
+        </div>
+
         <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-800">Create Account</h2>
-          <p className="text-sm text-gray-600">Register for UoG Complaint System</p>
+          <h2 className="text-2xl font-bold text-gray-800">{t('register.title')}</h2>
+          <p className="text-sm text-gray-600">{t('register.subtitle')}</p>
         </div>
 
         {error && (
@@ -63,7 +77,7 @@ function Register() {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                First Name *
+                {t('register.firstName')} *
               </label>
               <input
                 type="text"
@@ -77,7 +91,7 @@ function Register() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Last Name *
+                {t('register.lastName')} *
               </label>
               <input
                 type="text"
@@ -92,7 +106,7 @@ function Register() {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Username *
+              {t('common.username')} *
             </label>
             <input
               type="text"
@@ -106,7 +120,7 @@ function Register() {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Email *
+              {t('common.email')} *
             </label>
             <input
               type="email"
@@ -120,7 +134,7 @@ function Register() {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Role *
+              {t('register.role')} *
             </label>
             <select
               name="role"
@@ -128,16 +142,16 @@ function Register() {
               value={formData.role}
               onChange={handleChange}
             >
-              <option value="student">Student</option>
-              <option value="academic">Academic Staff</option>
-              <option value="non_academic">Non-academic Staff</option>
+              <option value="student">{t('register.roles.student')}</option>
+              <option value="academic">{t('register.roles.academic')}</option>
+              <option value="non_academic">{t('register.roles.nonAcademic')}</option>
             </select>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Password *
+                {t('common.password')} *
               </label>
               <input
                 type="password"
@@ -148,13 +162,13 @@ function Register() {
                 onChange={handleChange}
               />
               <p className="text-xs text-gray-500 mt-1">
-                Min 8 chars, uppercase, lowercase, digit, special char
+                {t('register.passwordHint')}
               </p>
             </div>
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Confirm Password *
+                {t('register.confirmPassword')} *
               </label>
               <input
                 type="password"
@@ -170,15 +184,15 @@ function Register() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition disabled:opacity-50"
+            className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition shadow-lg disabled:opacity-50"
           >
-            {loading ? 'Creating Account...' : 'Register'}
+            {loading ? t('register.registering') : t('common.register')}
           </button>
         </form>
 
         <div className="mt-6 text-center">
           <Link to="/login" className="text-sm text-blue-600 hover:underline">
-            Already have an account? Login
+            {t('register.hasAccount')}
           </Link>
         </div>
       </div>

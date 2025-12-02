@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 
 function Login() {
+  const { t } = useTranslation();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -27,13 +30,35 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 to-blue-700">
-      <div className="bg-white p-8 rounded-xl shadow-2xl w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #2B6CB0 0%, #3182CE 50%, #4299E1 100%)' }}>
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2"></div>
+      </div>
+
+      <div className="bg-white p-10 rounded-2xl shadow-2xl w-full max-w-md relative z-10">
+        {/* Language Switcher */}
+        <div className="absolute top-4 right-4">
+          <LanguageSwitcher />
+        </div>
+
         {/* Logo */}
-        <div className="text-center mb-6">
-          <img src="/uog_logo.png" alt="UoG" className="w-24 h-24 mx-auto mb-4" onError={(e) => e.target.style.display = 'none'} />
-          <h2 className="text-2xl font-bold text-gray-800">University of Gondar</h2>
-          <p className="text-sm text-blue-600 uppercase tracking-wide">Complaint Management System</p>
+        <div className="text-center mb-8">
+          <div className="mx-auto mb-4 flex items-center justify-center">
+            <img 
+              src="/uog_logo.png" 
+              alt="UoG" 
+              className="w-40 h-40 object-contain" 
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.parentElement.innerHTML = '<div class="w-40 h-40 bg-blue-600 rounded-full flex items-center justify-center"><span class="text-white text-5xl font-bold">UoG</span></div>';
+              }} 
+            />
+          </div>
+          <h2 className="text-3xl font-bold text-gray-800 mb-2">{t('common.welcome')}</h2>
+          <h3 className="text-lg font-semibold text-blue-700">University of Gondar</h3>
+          <p className="text-sm text-gray-600 mt-1">{t('login.subtitle')}</p>
         </div>
 
         {error && (
@@ -42,29 +67,29 @@ function Login() {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Username / Email
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              {t('login.username')}
             </label>
             <input
               type="text"
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              placeholder="student@example.com"
+              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition"
+              placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Password
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              {t('login.password')}
             </label>
             <input
               type="password"
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition"
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -74,27 +99,25 @@ function Login() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition disabled:opacity-50"
+            className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {loading ? 'Logging in...' : 'Login'}
+            {loading ? t('login.loggingIn') : t('common.login')}
           </button>
         </form>
 
-        <div className="mt-6 text-center space-y-2">
-          <Link to="/password-reset" className="text-sm text-blue-600 hover:underline block">
-            Forgot Password?
+        <div className="mt-6 text-center space-y-3">
+          <Link to="/password-reset" className="text-sm text-blue-700 hover:text-blue-800 hover:underline block font-medium">
+            {t('login.forgotPassword')}
           </Link>
-          <Link to="/register" className="text-sm text-blue-600 hover:underline block">
-            Don't have an account? Register
+          <Link to="/register" className="text-sm text-blue-700 hover:text-blue-800 hover:underline block font-medium">
+            {t('login.noAccount')}
           </Link>
-          <Link to="/track" className="text-sm text-gray-600 hover:underline block">
-            Track Complaint Anonymously
+          <Link to="/track" className="text-sm text-gray-600 hover:text-gray-800 hover:underline block">
+            {t('login.trackAnonymous')}
           </Link>
         </div>
 
-        <div className="mt-6 pt-6 border-t border-gray-200 text-center text-xs text-gray-500">
-          <p>Test Account: student@example.com / Student123!</p>
-        </div>
+
       </div>
     </div>
   );

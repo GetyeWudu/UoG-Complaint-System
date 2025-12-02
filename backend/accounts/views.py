@@ -69,14 +69,47 @@ class UserRegistrationView(generics.CreateAPIView):
 class CustomAuthToken(ObtainAuthToken):
     """
     Enhanced login endpoint with activity logging
+    Accepts username OR email
     POST /api/auth/login/
     """
     def post(self, request, *args, **kwargs):
-        serializer = self.serializer_class(data=request.data, context={'request': request})
+        username_or_email = request.data.get('username', '')
+        password = request.data.get('password', '')
+        
+        # Try to find user by username or email
+        user = None
+        try:
+            # First try username
+            user = User.objects.get(username=username_or_email)
+        except User.DoesNotExist:
+            # Then try email
+            try:
+                user = User.objects.get(email=username_or_email)
+            except User.DoesNotExist:
+                pass
+        
+        # Validate password
+        if not user or not user.check_password(password):
+            # Handle failed login
+            if user:
+                user.failed_login_attempts += 1
+                if user.failed_login_attempts >= 5:
+                    user.account_locked_until = timezone.now() + timedelta(minutes=15)
+                user.save()
+                
+                ActivityLog.objects.create(
+                    user=user,
+                    action='login_failed',
+                    description=f'Failed login attempt for {username_or_email}',
+                    ip_address=get_client_ip(request),
+                    user_agent=request.META.get('HTTP_USER_AGENT', '')
+                )
+            
+            return Response({
+                'error': 'Invalid credentials'
+            }, status=status.HTTP_401_UNAUTHORIZED)
         
         try:
-            serializer.is_valid(raise_exception=True)
-            user = serializer.validated_data['user']
             
             # Check if account is locked
             if user.account_locked_until and user.account_locked_until > timezone.now():
@@ -393,6 +426,45 @@ class CurrentUserView(APIView):
         serializer.save()
         
         return Response(serializer.data)
+
+
+class UserListView(generics.ListAPIView):
+    """
+    Get list of all users (for assignment dropdown)
+    GET /api/auth/users/
+    """
+    queryset = User.objects.filter(is_active=True).order_by('first_name', 'last_name')
+    serializer_class = UserSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    
+    def get_queryset(self):
+        """Filter users based on role permissions"""
+        user = self.request.user
+        queryset = super().get_queryset()
+        
+        # Super admin and admin can see all users
+        if user.role in ['super_admin', 'admin']:
+            return queryset
+        
+        # Department heads can see users in their department
+        if user.role == 'dept_head' and user.department:
+            return queryset.filter(department=user.department)
+        
+        # Deans can see users in their college
+        if user.role == 'dean':
+            # Get all departments in dean's college
+            from .models import College
+            colleges = College.objects.filter(dean=user)
+            dept_ids = []
+            for college in colleges:
+                dept_ids.extend(college.department_set.values_list('id', flat=True))
+            return queryset.filter(department__id__in=dept_ids)
+        
+        # Others can only see users in their campus
+        if user.campus:
+            return queryset.filter(campus=user.campus)
+        
+        return queryset
 
 
 # Utility Views

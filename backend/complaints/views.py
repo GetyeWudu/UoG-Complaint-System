@@ -51,10 +51,25 @@ class TrackComplaintView(APIView):
     def get(self, request, tracking_id):
         try:
             c = Complaint.objects.get(tracking_id=tracking_id)
+            
+            # Get comments
+            comments = []
+            for comment in c.comments.all().order_by('created_at'):
+                comments.append({
+                    'id': comment.id,
+                    'content': comment.content,
+                    'created_at': comment.created_at,
+                    'author_name': comment.author.get_full_name() if comment.author else 'Anonymous'
+                })
+            
             return Response({
-                "title": c.title, "status": c.status, 
-                "urgency": c.urgency, "location": c.location, 
-                "created_at": c.created_at
+                "title": c.title, 
+                "status": c.status, 
+                "urgency": c.urgency, 
+                "location": c.location, 
+                "created_at": c.created_at,
+                "resolution": c.resolution_notes,
+                "comments": comments
             })
         except Complaint.DoesNotExist:
             return Response({"error": "Invalid ID"}, status=404)
@@ -84,86 +99,159 @@ class ComplaintListCreateView(generics.ListCreateAPIView):
                     department=user.department
                 )
             return Complaint.objects.none()
+        
+        # 4. Dean: See ALL complaints from their college (all departments in college)
+        if role == 'dean':
+            if user.department and user.department.college:
+                from accounts.models import Department
+                # Get all departments in dean's college
+                college = user.department.college
+                departments = Department.objects.filter(college=college)
+                return Complaint.objects.filter(department__in=departments).order_by('-created_at')
+            return Complaint.objects.none()
+        
+        # 5. Campus Director: See ALL complaints in their campus
+        if role == 'campus_director':
+            if user.campus:
+                return Complaint.objects.filter(campus=user.campus).order_by('-created_at')
+            return Complaint.objects.none()
 
-        # 4. Admin & Super Admin: See Everything
+        # 6. Admin & Super Admin: See Everything
         if role in ['admin', 'super_admin']:
             return Complaint.objects.all().order_by('-created_at')
         
-        # 5. Other staff: See assigned complaints
+        # 7. Other staff: See assigned complaints
         return Complaint.objects.filter(assigned_to=user).order_by('-created_at')
 
     def perform_create(self, serializer):
-        from django.utils import timezone
+        from .ai_service import analyze_urgency, analyze_sentiment, generate_summary, detect_language
+        from .sla_service import apply_sla_to_complaint
+        from .validators import validate_complaint_content
+        from rest_framework.exceptions import ValidationError
         
+        title = serializer.validated_data.get('title', '')
         description = serializer.validated_data.get('description', '')
         
-        # AI ANALYSIS for urgency
-        urgency_score = analyze_urgency(description)
+        # Validate complaint content (AI-powered validation)
+        is_valid, error_message = validate_complaint_content(title, description, self.request.user)
+        if not is_valid:
+            raise ValidationError({'error': error_message})
+        
+        # Detect language
+        try:
+            detected_lang, lang_confidence = detect_language(description)
+            language = detected_lang if lang_confidence > 0.7 else 'en'
+        except Exception as e:
+            logger.warning(f"Language detection failed: {e}")
+            language = 'en'
+        
+        # AI urgency analysis with confidence
+        try:
+            urgency_score, urgency_confidence, urgency_reason = analyze_urgency(description, language)
+        except Exception as e:
+            logger.error(f"Urgency analysis failed: {e}")
+            urgency_score = 'medium'
+            urgency_confidence = 0.5
+            urgency_reason = 'Default priority'
+        
+        # Sentiment analysis
+        try:
+            sentiment_score, sentiment_label, sentiment_conf = analyze_sentiment(description)
+        except Exception as e:
+            logger.warning(f"Sentiment analysis failed: {e}")
+            sentiment_score = 0.0
+            sentiment_label = 'neutral'
+        
+        # Generate summary
+        try:
+            ai_summary = generate_summary(description)
+        except Exception as e:
+            logger.warning(f"Summary generation failed: {e}")
+            ai_summary = description[:150]
         
         # Generate tracking ID
         track_id = f"CMP-{str(uuid.uuid4())[:8].upper()}"
         
-        # Create complaint
+        # Create complaint with AI metadata
         complaint = serializer.save(
             submitter=self.request.user, 
-            urgency=urgency_score, 
+            urgency=urgency_score,
+            priority=urgency_score,
+            language=language,
+            ai_urgency_confidence=urgency_confidence,
+            ai_urgency_reason=urgency_reason,
+            sentiment_score=sentiment_score,
+            sentiment_label=sentiment_label,
+            ai_summary=ai_summary,
             tracking_id=track_id,
             status='new'
         )
         
-        # Apply auto-routing rules
-        apply_routing_rules(complaint)
+        # Apply SLA (don't fail if this fails)
+        try:
+            apply_sla_to_complaint(complaint)
+        except Exception as e:
+            logger.warning(f"SLA application failed: {e}")
         
-        # Handle file uploads
-        files = self.request.FILES.getlist('uploaded_files')
-        if files:
-            from .validators import validate_file_size, validate_file_extension, sanitize_filename
-            
-            for file in files:
-                try:
-                    validate_file_size(file)
-                    validate_file_extension(file)
-                    
-                    safe_filename = sanitize_filename(file.name)
-                    
-                    ComplaintFile.objects.create(
-                        complaint=complaint,
-                        uploaded_by=self.request.user,
-                        file=file,
-                        filename=safe_filename,
-                        file_size=file.size,
-                        mime_type=file.content_type
-                    )
-                except Exception as e:
-                    # Log error but don't fail the complaint creation
-                    import logging
-                    logger = logging.getLogger(__name__)
-                    logger.error(f"Failed to upload file {file.name}: {str(e)}")
+        # Log creation
+        logger.info(f"Complaint {track_id} created - Urgency: {urgency_score}, Language: {language}")
         
-        # Log creation event
-        ComplaintEvent.objects.create(
-            complaint=complaint,
-            event_type='created',
-            actor=self.request.user,
-            notes='Complaint created'
-        )
+        # Handle file uploads (don't fail if this fails)
+        try:
+            files = self.request.FILES.getlist('uploaded_files')
+            if files:
+                from .validators import validate_file_size, validate_file_extension, sanitize_filename
+                
+                for file in files:
+                    try:
+                        validate_file_size(file)
+                        validate_file_extension(file)
+                        
+                        safe_filename = sanitize_filename(file.name)
+                        
+                        ComplaintFile.objects.create(
+                            complaint=complaint,
+                            uploaded_by=self.request.user,
+                            file=file,
+                            filename=safe_filename,
+                            file_size=file.size,
+                            mime_type=file.content_type
+                        )
+                    except Exception as e:
+                        logger.error(f"Failed to upload file {file.name}: {str(e)}")
+        except Exception as e:
+            logger.error(f"File upload processing failed: {e}")
         
-        # Send confirmation email
-        if self.request.user.email:
-            from accounts.utils import send_email
-            from django.conf import settings
-            
-            send_email(
-                template_type='submission_confirmation',
-                recipient=self.request.user.email,
-                context={
-                    'submitter_name': self.request.user.get_full_name() or self.request.user.username,
-                    'tracking_id': complaint.tracking_id,
-                    'title': complaint.title,
-                    'status': complaint.get_status_display(),
-                    'complaint_url': f"{settings.FRONTEND_URL}/complaints/{complaint.id}",
-                }
+        # Log creation event (don't fail if this fails)
+        try:
+            ComplaintEvent.objects.create(
+                complaint=complaint,
+                event_type='created',
+                actor=self.request.user,
+                notes='Complaint created'
             )
+        except Exception as e:
+            logger.warning(f"Failed to create event log: {e}")
+        
+        # Send confirmation email (don't fail if email fails)
+        try:
+            if self.request.user.email:
+                from accounts.utils import send_email
+                from django.conf import settings
+                
+                send_email(
+                    template_type='submission_confirmation',
+                    recipient=self.request.user.email,
+                    context={
+                        'submitter_name': self.request.user.get_full_name() or self.request.user.username,
+                        'tracking_id': complaint.tracking_id,
+                        'title': complaint.title,
+                        'status': complaint.get_status_display(),
+                        'complaint_url': f"{settings.FRONTEND_URL}/complaints/{complaint.id}",
+                    }
+                )
+        except Exception as e:
+            logger.warning(f"Failed to send confirmation email: {e}")
 
 class ComplaintDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Complaint.objects.all()
@@ -181,9 +269,24 @@ class ComplaintDetailView(generics.RetrieveUpdateDestroyAPIView):
             notify_complaint_closed
         )
         
-        old_status = self.get_object().status
+        old_complaint = self.get_object()
+        old_status = old_complaint.status
+        old_assigned_to = old_complaint.assigned_to
+        
+        # Auto-change status to 'assigned' when assigning to someone
+        if 'assigned_to' in serializer.validated_data:
+            new_assigned_to = serializer.validated_data.get('assigned_to')
+            if new_assigned_to and new_assigned_to != old_assigned_to and new_assigned_to is not None:
+                # If status is 'new', automatically change it to 'assigned'
+                if old_status == 'new':
+                    # Only auto-change if status is not being explicitly set to something else
+                    if 'status' not in serializer.validated_data or serializer.validated_data.get('status') == 'new':
+                        serializer.validated_data['status'] = 'assigned'
+                        logger.info(f"Auto-changing status from 'new' to 'assigned' for complaint {old_complaint.id}")
+        
         complaint = serializer.save()
         new_status = complaint.status
+        logger.info(f"Complaint {complaint.id} updated: status={new_status}, assigned_to={complaint.assigned_to}")
         
         # Send notification if status changed
         if old_status != new_status:
@@ -204,9 +307,11 @@ class ComplaintDetailView(generics.RetrieveUpdateDestroyAPIView):
         # Log the status change
         ComplaintEvent.objects.create(
             complaint=complaint,
-            event_type='status_change',
-            description=f'Status changed from {old_status} to {new_status}',
-            user=self.request.user
+            event_type='status_changed',
+            notes=f'Status changed from {old_status} to {new_status}',
+            actor=self.request.user,
+            old_value=old_status,
+            new_value=new_status
         )
 
 # --- NEW VIEW FOR FEEDBACK ---
@@ -216,10 +321,43 @@ class ComplaintFeedbackView(APIView):
     def patch(self, request, pk):
         try:
             complaint = Complaint.objects.get(pk=pk)
-            complaint.feedback_rating = request.data.get('feedback_rating')
+            
+            # Validation: Only submitter can give feedback
+            if complaint.submitter != request.user:
+                return Response({'error': 'Only the complaint submitter can provide feedback'}, status=403)
+            
+            # Validation: Only resolved/closed complaints can be rated
+            if complaint.status not in ['resolved', 'closed']:
+                return Response({'error': 'Feedback can only be provided for resolved or closed complaints'}, status=400)
+            
+            # Validation: Can't rate twice
+            if complaint.feedback_rating is not None:
+                return Response({'error': 'Feedback already submitted for this complaint'}, status=400)
+            
+            # Get and validate rating
+            rating = request.data.get('feedback_rating')
+            if not rating or not isinstance(rating, int) or rating < 1 or rating > 5:
+                return Response({'error': 'Rating must be between 1 and 5'}, status=400)
+            
+            # Save feedback
+            complaint.feedback_rating = rating
             complaint.feedback_comment = request.data.get('feedback_comment', '')
+            complaint.feedback_submitted_at = timezone.now()
             complaint.save()
-            return Response({'status': 'feedback saved'})
+            
+            # Log event
+            ComplaintEvent.objects.create(
+                complaint=complaint,
+                event_type='feedback_submitted',
+                actor=request.user,
+                notes=f'Feedback submitted: {rating} stars'
+            )
+            
+            return Response({
+                'status': 'success',
+                'message': 'Thank you for your feedback!',
+                'rating': rating
+            })
         except Complaint.DoesNotExist:
             return Response({'error': 'Complaint not found'}, status=404)
 

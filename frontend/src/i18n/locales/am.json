@@ -1,0 +1,168 @@
+{
+  "common": {
+    "welcome": "እንኳን ደህና መጡ",
+    "logout": "ውጣ",
+    "login": "ግባ",
+    "register": "ተመዝግብ",
+    "email": "ኢሜይል",
+    "username": "የተጠቃሚ ስም",
+    "password": "የይለፍ ቃል",
+    "dashboard": "ዳሽቦርድ",
+    "complaints": "ቅሬታዎች",
+    "newComplaint": "አዲስ ቅሬታ",
+    "trackComplaint": "ቅሬታን ክትትል",
+    "search": "ፈልግ",
+    "filter": "አጣራ",
+    "status": "ሁኔታ",
+    "priority": "የቅድሚያ",
+    "category": "ምድብ",
+    "location": "አካባቢ",
+    "date": "ቀን",
+    "actions": "ድርጊቶች",
+    "view": "እይ",
+    "edit": "አስተካክል",
+    "delete": "ሰርዝ",
+    "submit": "ላክ",
+    "cancel": "ተወው",
+    "save": "አስቀምጥ",
+    "close": "ዝጋ",
+    "loading": "በመጫን ላይ...",
+    "noData": "ዳታ የለም",
+    "language": "ቋንቋ",
+    "english": "እንግሊዝኛ",
+    "amharic": "አማርኛ"
+  },
+  "dashboard": {
+    "title": "ዳሽቦርድ",
+    "stats": {
+      "total": "ጠቅላላ ቅሬታዎች",
+      "new": "አዲስ",
+      "inProgress": "በሂደት ላይ",
+      "resolved": "ተፈትቷል",
+      "closed": "ዝግቷል",
+      "slaBreaches": "SLA ጥሰቶች",
+      "averageResponseTime": "አማካይ የመልስ ጊዜ",
+      "averageRating": "አማካይ ደረጃ"
+    },
+    "student": {
+      "myComplaints": "የእኔ ቅሬታዎች",
+      "openComplaints": "ክፍት ቅሬታዎች",
+      "recentActivity": "የቅርብ ጊዜ እንቅስቃሴ",
+      "slaCountdown": "SLA ቆጠራ"
+    },
+    "dean": {
+      "collegeComplaints": "የኮሌጅ ቅሬታዎች",
+      "byDepartment": "በክፍል",
+      "pendingApprovals": "በመጠባበቅ ላይ ያሉ ማረጋገጫዎች",
+      "topCategories": "የከፍተኛ ምድቦች"
+    },
+    "admin": {
+      "systemOverview": "የስርዓት አጠቃላይ እይታ",
+      "allComplaints": "ሁሉም ቅሬታዎች",
+      "byCampus": "በካምፐስ",
+      "recentActivity": "የቅርብ ጊዜ እንቅስቃሴ"
+    },
+    "deptHead": {
+      "departmentComplaints": "የክፍል ቅሬታዎች",
+      "staffWorkload": "የሰራተኞች ስራ ጭነት",
+      "pendingApprovals": "በመጠባበቅ ላይ ያሉ ማረጋገጫዎች"
+    },
+    "maintenance": {
+      "assignedTasks": "የተመደቡ ተግባራት",
+      "openTasks": "ክፍት ተግባራት",
+      "completedTasks": "የተጠናቀቁ ተግባራት"
+    },
+    "proctor": {
+      "examIncidents": "የፈተና ክስተቶች",
+      "securityIssues": "የደህንነት ጉዳዮች",
+      "pendingInvestigation": "በመጠባበቅ ላይ ያለ ምርመራ"
+    },
+    "campusDirector": {
+      "campusOverview": "የካምፐስ አጠቃላይ እይታ",
+      "criticalIncidents": "አስቸኳይ ክስተቶች",
+      "slaCompliance": "SLA መሟሟት"
+    },
+    "superAdmin": {
+      "systemStats": "የስርዓት ስታትስቲክስ",
+      "userActivity": "የተጠቃሚ እንቅስቃሴ",
+      "systemHealth": "የስርዓት ጤና"
+    }
+  },
+  "complaint": {
+    "title": "ርዕስ",
+    "description": "መግለጫ",
+    "location": "አካባቢ",
+    "campus": "ካምፐስ",
+    "trackingId": "የክትትል መለያ",
+    "createdAt": "የተፈጠረበት ቀን",
+    "updatedAt": "የተዘመነበት ቀን",
+    "submitter": "የላከው",
+    "assignedTo": "የተመደበው",
+    "submitNew": "አዲስ ቅሬታ ያስገቡ",
+    "titlePlaceholder": "የችግሩ አጭር መግለጫ",
+    "descriptionPlaceholder": "ስለ ቅሬታዎ ዝርዝር መረጃ ያቅርቡ (በአማርኛ መጻፍ ይችላሉ)",
+    "locationPlaceholder": "ለምሳሌ፣ ክፍል 301፣ ህንፃ ሀ",
+    "selectCampus": "ካምፐስ ይምረጡ",
+    "attachFiles": "ፋይሎችን ያያይዙ (አማራጭ)",
+    "fileHint": "ከፍተኛው 10MB በአንድ ፋይል። የተፈቀዱ: JPG, PNG, GIF, PDF",
+    "filesSelected": "ፋይል(ሎች) ተመርጠዋል",
+    "submit": "ቅሬታ ያስገቡ",
+    "submitting": "በመላክ ላይ...",
+    "status": {
+      "new": "አዲስ",
+      "assigned": "ተመድቧል",
+      "inProgress": "በሂደት ላይ",
+      "pending": "በመጠባበቅ ላይ",
+      "resolved": "ተፈትቷል",
+      "closed": "ዝግቷል",
+      "rejected": "ተቀባይነት አላገኘም"
+    },
+    "priority": {
+      "low": "ዝቅተኛ",
+      "medium": "መካከለኛ",
+      "high": "ከፍተኛ",
+      "critical": "አስቸኳይ"
+    },
+    "addComment": "አስተያየት ጨምር",
+    "uploadFile": "ፋይል ጫን",
+    "updateStatus": "ሁኔታ አዘምን",
+    "assignTo": "መድብ",
+    "escalate": "አሳድግ",
+    "approve": "አረጋግጥ",
+    "reject": "አትቀበል"
+  },
+  "notifications": {
+    "title": "ማሳወቂያዎች",
+    "noNotifications": "አዲስ ማሳወቂያ የለም",
+    "markAllRead": "ሁሉንም እንደተነበበ ምልክት አድርግ"
+  },
+  "login": {
+    "subtitle": "የቅሬታ አስተዳደር ስርዓት",
+    "username": "የተጠቃሚ ስም / ኢሜይል",
+    "password": "የይለፍ ቃል",
+    "usernamePlaceholder": "student@test.com",
+    "forgotPassword": "የይለፍ ቃል ረሱ?",
+    "noAccount": "መለያ የለዎትም? ይመዝገቡ",
+    "trackAnonymous": "ቅሬታን በማንነት ሳይገለጹ ይከታተሉ",
+    "loggingIn": "በመግባት ላይ...",
+    "testAccounts": "የሙከራ መለያዎች:"
+  },
+  "register": {
+    "title": "መለያ ይፍጠሩ",
+    "subtitle": "ለUoG የቅሬታ ስርዓት ይመዝገቡ",
+    "firstName": "የመጀመሪያ ስም",
+    "lastName": "የአባት ስም",
+    "role": "ሚና",
+    "confirmPassword": "የይለፍ ቃል ያረጋግጡ",
+    "passwordHint": "ቢያንስ 8 ቁምፊዎች፣ ትልቅ፣ ትንሽ፣ ቁጥር፣ ልዩ ቁምፊ",
+    "passwordMismatch": "የይለፍ ቃሎች አይዛመዱም",
+    "registering": "መለያ በመፍጠር ላይ...",
+    "hasAccount": "መለያ አለዎት? ይግቡ",
+    "roles": {
+      "student": "ተማሪ",
+      "academic": "የአካዳሚክ ሰራተኛ",
+      "nonAcademic": "የአስተዳደር ሰራተኛ"
+    }
+  }
+}
+

@@ -1,7 +1,24 @@
 ﻿import axios from 'axios';
 
+// Determine API base URL based on environment
+const getBaseURL = () => {
+  // Vite uses import.meta.env instead of process.env
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
+  }
+  
+  // Otherwise, use current hostname with port 8000
+  const hostname = window.location.hostname;
+  const baseURL = `http://${hostname}:8000/api/`;
+  
+  // Debug: Log the API URL (remove in production)
+  console.log('🔗 API Base URL:', baseURL);
+  
+  return baseURL;
+};
+
 const api = axios.create({
-  baseURL: 'http://127.0.0.1:8000/api/',
+  baseURL: getBaseURL(),
 });
 
 // Automatically add the token to every request if we are logged in

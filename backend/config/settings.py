@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Security Settings
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-h-g$=*@umhw=z@^3!gd3tl*bg9jwnc2af0j*31!gdk9fd7siu*')
 DEBUG = config('DEBUG', default=True, cast=bool)
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=Csv())
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*', cast=Csv())  # Allow all hosts in development
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -99,8 +99,9 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # CORS Configuration
 CORS_ALLOW_ALL_ORIGINS = config('DEBUG', default=True, cast=bool)
-CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', default='http://localhost:5173', cast=Csv())
-CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='http://localhost:5173', cast=Csv())
+CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', default='http://localhost:5173,http://localhost:3000,http://10.139.27.50:5173,http://192.168.137.1:5173', cast=Csv())
+CORS_ALLOW_CREDENTIALS = True
+CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='http://localhost:5173,http://localhost:3000,http://10.139.27.50:5173,http://192.168.137.1:5173', cast=Csv())
 
 # Password Hashers (Argon2 for security)
 PASSWORD_HASHERS = [

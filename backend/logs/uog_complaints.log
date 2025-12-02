@@ -850,3 +850,1615 @@ WARNING 2025-11-28 13:26:23,674 log Bad Request: /api/complaints/8/comments/
 WARNING 2025-11-28 13:27:48,037 log Bad Request: /api/complaints/8/comments/
 INFO 2025-11-28 13:29:29,265 autoreload C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\complaints\serializers.py changed, reloading.
 INFO 2025-11-28 13:29:30,809 autoreload Watching for file changes with StatReloader
+ERROR 2025-11-28 13:42:19,357 utils Failed to send email to wudugetye@gmail.com: Connection unexpectedly closed
+ERROR 2025-11-28 13:45:11,586 utils Failed to send email to wudugetye@gmail.com: Connection unexpectedly closed
+WARNING 2025-11-28 13:45:46,715 log Unauthorized: /api/auth/login/
+INFO 2025-11-28 14:45:41,616 autoreload Watching for file changes with StatReloader
+WARNING 2025-11-28 15:15:40,825 log Unauthorized: /api/auth/login/
+WARNING 2025-11-28 15:15:49,665 log Unauthorized: /api/auth/login/
+WARNING 2025-11-28 15:16:30,162 log Unauthorized: /api/auth/login/
+INFO 2025-11-28 15:22:16,435 notifications Notification sent to wudugetye@gmail.com for complaint CMP-9029B8C8
+ERROR 2025-11-28 15:22:16,704 log Internal Server Error: /api/complaints/9/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\generics.py", line 292, in patch
+    return self.partial_update(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 82, in partial_update
+    return self.update(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 68, in update
+    self.perform_update(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\complaints\views.py", line 205, in perform_update
+    ComplaintEvent.objects.create(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        complaint=complaint,
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        user=self.request.user
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj = self.model(**kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\db\models\base.py", line 569, in __init__
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: ComplaintEvent() got unexpected keyword arguments: 'description', 'user'
+INFO 2025-11-28 15:25:28,578 utils Email sent successfully to wudugetye@gmail.com (type: submission_confirmation)
+INFO 2025-11-28 15:26:08,923 notifications Notification sent to wudugetye@gmail.com for complaint CMP-979C7D0B
+ERROR 2025-11-28 15:26:09,092 log Internal Server Error: /api/complaints/10/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\generics.py", line 292, in patch
+    return self.partial_update(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 82, in partial_update
+    return self.update(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 68, in update
+    self.perform_update(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\complaints\views.py", line 205, in perform_update
+    ComplaintEvent.objects.create(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        complaint=complaint,
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        user=self.request.user
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj = self.model(**kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\db\models\base.py", line 569, in __init__
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: ComplaintEvent() got unexpected keyword arguments: 'description', 'user'
+ERROR 2025-11-28 15:29:12,411 log Internal Server Error: /api/complaints/10/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\generics.py", line 292, in patch
+    return self.partial_update(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 82, in partial_update
+    return self.update(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 68, in update
+    self.perform_update(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\complaints\views.py", line 205, in perform_update
+    ComplaintEvent.objects.create(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        complaint=complaint,
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        user=self.request.user
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj = self.model(**kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\db\models\base.py", line 569, in __init__
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: ComplaintEvent() got unexpected keyword arguments: 'description', 'user'
+INFO 2025-11-28 15:32:55,323 autoreload C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\complaints\views.py changed, reloading.
+INFO 2025-11-28 15:33:09,432 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 15:35:55,844 notifications Notification sent to wudugetye@gmail.com for complaint CMP-979C7D0B
+INFO 2025-11-28 15:46:10,306 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 15:47:05,912 notifications Notification sent to wudugetye@gmail.com for complaint CMP-979C7D0B
+INFO 2025-11-28 15:50:47,515 autoreload C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\complaints\views.py changed, reloading.
+INFO 2025-11-28 15:50:49,153 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 15:51:18,724 autoreload C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\complaints\urls.py changed, reloading.
+INFO 2025-11-28 15:51:19,493 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 15:53:12,504 autoreload Watching for file changes with StatReloader
+ERROR 2025-11-28 15:58:11,476 log Internal Server Error: /api/complaints/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\complaints\views.py", line 150, in perform_create
+    logger.info(f"Complaint {track_id} validated - Confidence: {validation_result['confidence']:.2f}")
+    ^^^^^^
+UnboundLocalError: cannot access local variable 'logger' where it is not associated with a value
+WARNING 2025-11-28 15:58:22,050 log Bad Request: /api/complaints/
+WARNING 2025-11-28 15:58:23,185 log Bad Request: /api/complaints/
+WARNING 2025-11-28 15:58:24,094 log Bad Request: /api/complaints/
+WARNING 2025-11-28 16:00:20,275 log Bad Request: /api/complaints/
+WARNING 2025-11-28 16:01:32,832 log Bad Request: /api/complaints/
+ERROR 2025-11-28 16:02:19,468 log Internal Server Error: /api/complaints/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\complaints\views.py", line 150, in perform_create
+    logger.info(f"Complaint {track_id} validated - Confidence: {validation_result['confidence']:.2f}")
+    ^^^^^^
+UnboundLocalError: cannot access local variable 'logger' where it is not associated with a value
+ERROR 2025-11-28 16:03:09,402 log Internal Server Error: /api/complaints/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\complaints\views.py", line 150, in perform_create
+    logger.info(f"Complaint {track_id} validated - Confidence: {validation_result['confidence']:.2f}")
+    ^^^^^^
+UnboundLocalError: cannot access local variable 'logger' where it is not associated with a value
+INFO 2025-11-28 16:05:13,457 autoreload C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\complaints\views.py changed, reloading.
+INFO 2025-11-28 16:05:15,181 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 16:05:47,517 autoreload Watching for file changes with StatReloader
+WARNING 2025-11-28 16:06:15,288 log Bad Request: /api/complaints/
+WARNING 2025-11-28 17:38:44,130 log Bad Request: /api/complaints/
+WARNING 2025-11-28 17:39:20,982 log Bad Request: /api/complaints/
+WARNING 2025-11-28 17:39:26,385 log Bad Request: /api/complaints/
+ERROR 2025-11-28 17:40:09,157 log Internal Server Error: /api/complaints/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\KiroCOmplaint\Complaint\backend\complaints\views.py", line 150, in perform_create
+    logger.info(f"Complaint {track_id} validated - Confidence: {validation_result['confidence']:.2f}")
+    ^^^^^^
+UnboundLocalError: cannot access local variable 'logger' where it is not associated with a value
+WARNING 2025-11-28 17:40:13,834 log Bad Request: /api/complaints/
+WARNING 2025-11-28 17:40:14,689 log Bad Request: /api/complaints/
+WARNING 2025-11-28 17:40:14,920 log Bad Request: /api/complaints/
+WARNING 2025-11-28 17:40:15,518 log Bad Request: /api/complaints/
+INFO 2025-11-29 20:13:25,812 autoreload Watching for file changes with StatReloader
+INFO 2025-11-29 20:25:23,240 autoreload Watching for file changes with StatReloader
+WARNING 2025-11-29 20:32:02,642 log Unauthorized: /api/auth/login/
+WARNING 2025-11-29 20:32:20,831 log Unauthorized: /api/auth/login/
+WARNING 2025-11-29 20:32:23,112 log Unauthorized: /api/auth/login/
+WARNING 2025-11-29 20:32:24,725 log Unauthorized: /api/auth/login/
+WARNING 2025-11-29 20:32:59,746 log Not Found: /
+WARNING 2025-11-29 20:33:00,868 log Not Found: /favicon.ico
+WARNING 2025-11-29 20:33:51,673 log Unauthorized: /api/auth/login/
+INFO 2025-11-29 20:36:32,792 notifications Notification sent to wudugetye@gmail.com for complaint CMP-730B459D
+WARNING 2025-11-29 21:00:36,085 ai_service Language detection error: No module named 'googletrans'
+ERROR 2025-11-29 21:00:36,343 log Internal Server Error: /api/complaints/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1924, in transform
+    return self.try_transform(wrapped, name)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1458, in try_transform
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Unsupported lookup 'isnull' for BigAutoField or join on the field not permitted, perhaps you meant isnull?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py", line 189, in perform_create
+    apply_sla_to_complaint(complaint)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\sla_service.py", line 54, in apply_sla_to_complaint
+    sla = get_sla_for_complaint(complaint)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\sla_service.py", line 41, in get_sla_for_complaint
+    ).first()
+      ~~~~~^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\query.py", line 1106, in first
+    for obj in queryset[:1]:
+               ~~~~~~~~^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\query.py", line 386, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1610, in execute_sql
+    sql, params = self.as_sql()
+                  ~~~~~~~~~~~^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 766, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup(
+                                       ~~~~~~~~~~~~~~~~~~^
+        with_col_aliases=with_col_aliases or bool(combinator),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 86, in pre_sql_setup
+    order_by = self.get_order_by()
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 490, in get_order_by
+    for expr, is_ref in self._order_by_pairs():
+                        ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 473, in _order_by_pairs
+    yield from self.find_ordering_name(
+               ~~~~~~~~~~~~~~~~~~~~~~~^
+        field,
+        ^^^^^^
+        self.query.get_meta(),
+        ^^^^^^^^^^^^^^^^^^^^^^
+        default_order=default_order,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1120, in find_ordering_name
+    (OrderBy(transform_function(t, alias), descending=descending), False)
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1928, in transform
+    raise last_field_exception
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1901, in setup_joins
+    path, final_field, targets, rest = self.names_to_path(
+                                       ~~~~~~~~~~~~~~~~~~^
+        names[:pivot],
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        fail_on_missing=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1806, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'isnull' into field. Choices are: complaints, created_at, description, id, is_active, name, routingrule, slaconfiguration, subcategories
+WARNING 2025-11-29 21:06:12,869 log Unauthorized: /api/auth/login/
+INFO 2025-11-29 21:07:13,197 notifications Notification sent to wudugetye@gmail.com for complaint CMP-5471E702
+WARNING 2025-11-29 21:24:53,407 ai_service Language detection error: No module named 'googletrans'
+ERROR 2025-11-29 21:24:53,931 log Internal Server Error: /api/complaints/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1924, in transform
+    return self.try_transform(wrapped, name)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1458, in try_transform
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Unsupported lookup 'isnull' for BigAutoField or join on the field not permitted, perhaps you meant isnull?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py", line 189, in perform_create
+    apply_sla_to_complaint(complaint)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\sla_service.py", line 54, in apply_sla_to_complaint
+    sla = get_sla_for_complaint(complaint)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\sla_service.py", line 41, in get_sla_for_complaint
+    ).first()
+      ~~~~~^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\query.py", line 1106, in first
+    for obj in queryset[:1]:
+               ~~~~~~~~^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\query.py", line 386, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1610, in execute_sql
+    sql, params = self.as_sql()
+                  ~~~~~~~~~~~^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 766, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup(
+                                       ~~~~~~~~~~~~~~~~~~^
+        with_col_aliases=with_col_aliases or bool(combinator),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 86, in pre_sql_setup
+    order_by = self.get_order_by()
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 490, in get_order_by
+    for expr, is_ref in self._order_by_pairs():
+                        ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 473, in _order_by_pairs
+    yield from self.find_ordering_name(
+               ~~~~~~~~~~~~~~~~~~~~~~~^
+        field,
+        ^^^^^^
+        self.query.get_meta(),
+        ^^^^^^^^^^^^^^^^^^^^^^
+        default_order=default_order,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1120, in find_ordering_name
+    (OrderBy(transform_function(t, alias), descending=descending), False)
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1928, in transform
+    raise last_field_exception
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1901, in setup_joins
+    path, final_field, targets, rest = self.names_to_path(
+                                       ~~~~~~~~~~~~~~~~~~^
+        names[:pivot],
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        fail_on_missing=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1806, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'isnull' into field. Choices are: complaints, created_at, description, id, is_active, name, routingrule, slaconfiguration, subcategories
+WARNING 2025-11-29 21:26:37,277 log Unauthorized: /api/auth/login/
+WARNING 2025-11-29 21:49:18,453 log Unauthorized: /api/auth/login/
+INFO 2025-11-29 22:00:02,476 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\accounts\views.py changed, reloading.
+INFO 2025-11-29 22:00:15,872 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 10:43:54,270 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-01 10:44:46,491 log Unauthorized: /api/auth/me/
+WARNING 2025-12-01 10:44:46,492 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 10:44:46,491 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 10:44:46,526 log Unauthorized: /api/auth/me/
+WARNING 2025-12-01 10:44:46,528 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 10:44:46,534 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 10:44:46,537 log Unauthorized: /api/auth/logout/
+WARNING 2025-12-01 10:44:46,757 log Unauthorized: /api/auth/logout/
+WARNING 2025-12-01 11:05:11,617 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:06:49,866 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:07:50,942 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:09:09,995 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:09:23,366 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:09:38,015 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:09:38,971 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:09:40,512 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:09:57,154 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:09:58,182 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:09:59,481 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:11:16,821 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:11:19,625 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:11:33,116 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:11:34,015 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:15:52,442 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:15:53,259 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:15:54,059 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:16:17,902 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:16:18,812 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:16:31,234 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:16:32,302 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:16:42,771 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:16:43,683 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:17:04,089 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:17:04,937 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:17:22,490 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:18:05,586 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:18:48,190 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:18:49,084 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 11:19:37,774 log Unauthorized: /api/auth/login/
+INFO 2025-12-01 13:47:00,576 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-01 13:54:34,323 log Unauthorized: /api/complaints/dashboards/super-admin/stats/
+WARNING 2025-12-01 13:54:36,309 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 13:54:36,312 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 13:54:48,346 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 13:54:48,355 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 13:55:06,312 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 13:55:06,315 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 13:55:25,305 log Unauthorized: /api/complaints/dashboards/proctor/stats/
+WARNING 2025-12-01 13:55:25,311 log Unauthorized: /api/complaints/dashboards/proctor/exam_complaints/
+WARNING 2025-12-01 13:55:26,301 log Unauthorized: /api/complaints/dashboards/admin/stats/
+WARNING 2025-12-01 13:55:26,304 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 13:55:27,809 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 13:55:32,310 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 13:55:32,313 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 13:55:36,302 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 13:55:36,304 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 13:55:36,308 log Unauthorized: /api/complaints/dashboards/super-admin/stats/
+WARNING 2025-12-01 14:07:20,879 ai_service Language detection error: No module named 'googletrans'
+ERROR 2025-12-01 14:07:21,192 log Internal Server Error: /api/complaints/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1924, in transform
+    return self.try_transform(wrapped, name)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1458, in try_transform
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Unsupported lookup 'isnull' for BigAutoField or join on the field not permitted, perhaps you meant isnull?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py", line 189, in perform_create
+    apply_sla_to_complaint(complaint)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\sla_service.py", line 54, in apply_sla_to_complaint
+    sla = get_sla_for_complaint(complaint)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\sla_service.py", line 41, in get_sla_for_complaint
+    ).first()
+      ~~~~~^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\query.py", line 1106, in first
+    for obj in queryset[:1]:
+               ~~~~~~~~^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\query.py", line 386, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1610, in execute_sql
+    sql, params = self.as_sql()
+                  ~~~~~~~~~~~^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 766, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup(
+                                       ~~~~~~~~~~~~~~~~~~^
+        with_col_aliases=with_col_aliases or bool(combinator),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 86, in pre_sql_setup
+    order_by = self.get_order_by()
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 490, in get_order_by
+    for expr, is_ref in self._order_by_pairs():
+                        ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 473, in _order_by_pairs
+    yield from self.find_ordering_name(
+               ~~~~~~~~~~~~~~~~~~~~~~~^
+        field,
+        ^^^^^^
+        self.query.get_meta(),
+        ^^^^^^^^^^^^^^^^^^^^^^
+        default_order=default_order,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1120, in find_ordering_name
+    (OrderBy(transform_function(t, alias), descending=descending), False)
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1928, in transform
+    raise last_field_exception
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1901, in setup_joins
+    path, final_field, targets, rest = self.names_to_path(
+                                       ~~~~~~~~~~~~~~~~~~^
+        names[:pivot],
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        fail_on_missing=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1806, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'isnull' into field. Choices are: complaints, created_at, description, id, is_active, name, routingrule, slaconfiguration, subcategories
+INFO 2025-12-01 14:10:54,512 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\sla_service.py changed, reloading.
+INFO 2025-12-01 14:11:05,320 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 14:20:56,182 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-01 14:21:26,373 log Bad Request: /api/complaints/
+WARNING 2025-12-01 14:24:10,309 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 14:24:10,312 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 14:24:24,306 log Unauthorized: /api/complaints/dashboards/dean/stats/
+WARNING 2025-12-01 14:24:24,314 log Unauthorized: /api/complaints/dashboards/dean/pending_approvals/
+INFO 2025-12-01 14:47:14,788 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\accounts\urls.py changed, reloading.
+INFO 2025-12-01 14:47:20,614 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 14:47:55,554 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\accounts\views.py changed, reloading.
+INFO 2025-12-01 14:47:59,289 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-01 15:03:00,158 log Not Found: /api/public/track/ CMP-CAC42FAC/
+WARNING 2025-12-01 15:03:22,766 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 15:03:22,768 log Unauthorized: /api/complaints/dashboards/admin/stats/
+WARNING 2025-12-01 15:03:22,787 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 15:03:22,792 log Unauthorized: /api/complaints/dashboards/admin/stats/
+WARNING 2025-12-01 15:06:58,867 ai_service Language detection error: No module named 'googletrans'
+ERROR 2025-12-01 15:06:59,202 log Internal Server Error: /api/complaints/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py", line 146, in perform_create
+    urgency_score, urgency_confidence, urgency_reason = analyze_urgency(description, language)
+                                                        ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\ai_service.py", line 111, in analyze_urgency
+    return urgency, confidence, reason
+           ^^^^^^^
+UnboundLocalError: cannot access local variable 'urgency' where it is not associated with a value
+WARNING 2025-12-01 15:08:58,314 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:09:08,288 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:09:08,290 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:09:08,320 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:09:08,324 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:09:15,607 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:09:23,425 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:09:28,314 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:09:38,312 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:09:38,314 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:09:53,317 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:09:58,319 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:10:08,320 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:10:08,323 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:10:28,309 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:10:36,309 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:10:38,312 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:10:38,313 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:11:09,084 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:11:09,086 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:11:36,316 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:11:36,324 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:11:38,317 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:11:38,319 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:12:08,948 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:12:08,950 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:12:36,338 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:13:46,219 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+INFO 2025-12-01 15:14:51,443 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\ai_service.py changed, reloading.
+INFO 2025-12-01 15:14:57,273 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 15:18:16,304 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-01 15:18:48,442 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:18:48,537 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:18:52,603 log Unauthorized: /api/auth/logout/
+WARNING 2025-12-01 15:19:47,618 ai_service Language detection error: No module named 'googletrans'
+ERROR 2025-12-01 15:19:47,864 log Internal Server Error: /api/complaints/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py", line 192, in perform_create
+    logger.info(f"Complaint {track_id} validated - Confidence: {validation_result['confidence']:.2f}, "
+    ^^^^^^
+UnboundLocalError: cannot access local variable 'logger' where it is not associated with a value
+WARNING 2025-12-01 15:24:36,324 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:24:36,326 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:24:41,308 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:24:41,310 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:25:36,320 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:25:36,322 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:26:36,323 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:26:36,325 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:27:36,326 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:27:36,330 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:28:36,329 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:28:36,340 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:28:40,671 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:28:42,253 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:28:53,375 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:28:54,326 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:28:54,330 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:28:58,314 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:29:23,319 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:29:24,445 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:29:24,447 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:29:28,302 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:29:53,319 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:30:25,312 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:30:25,313 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:30:36,332 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:30:36,359 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:31:26,320 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:31:26,322 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:31:36,330 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:31:36,358 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+INFO 2025-12-01 15:32:58,705 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py changed, reloading.
+INFO 2025-12-01 15:33:00,669 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 15:34:04,802 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\dashboard_views.py changed, reloading.
+INFO 2025-12-01 15:34:06,165 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 15:35:49,503 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-01 15:37:04,696 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:37:07,627 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:37:12,947 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:37:12,949 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:37:22,905 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:37:24,313 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:37:24,314 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:37:28,300 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:37:34,918 log Unauthorized: /api/auth/logout/
+WARNING 2025-12-01 15:37:54,309 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:37:54,311 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:37:58,302 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:38:24,303 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:38:24,305 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:38:36,302 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:39:25,311 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 15:39:25,314 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 15:39:36,312 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 15:40:19,297 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+INFO 2025-12-01 15:50:55,707 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py changed, reloading.
+INFO 2025-12-01 15:50:58,329 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 15:54:46,323 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 15:57:55,808 views Complaint 18 updated: status=in_progress, assigned_to=maintenance (Maintenance Worker)
+INFO 2025-12-01 15:57:58,639 notifications Notification sent to student@uog.edu.et for complaint CMP-AC10450F
+INFO 2025-12-01 16:00:27,921 views Complaint 18 updated: status=resolved, assigned_to=maintenance (Maintenance Worker)
+INFO 2025-12-01 16:00:31,566 notifications Notification sent to student@uog.edu.et for complaint CMP-AC10450F
+INFO 2025-12-01 16:12:29,615 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py changed, reloading.
+INFO 2025-12-01 16:12:31,507 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 16:16:31,028 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 16:21:33,447 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py changed, reloading.
+INFO 2025-12-01 16:21:35,390 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 16:23:27,062 views Complaint 17 updated: status=in_progress, assigned_to=maintenance (Maintenance Worker)
+INFO 2025-12-01 16:23:29,668 notifications Notification sent to dean@uog.edu.et for complaint CMP-CAC42FAC
+INFO 2025-12-01 16:24:25,255 views Complaint 17 updated: status=resolved, assigned_to=maintenance (Maintenance Worker)
+INFO 2025-12-01 16:24:27,605 notifications Notification sent to dean@uog.edu.et for complaint CMP-CAC42FAC
+WARNING 2025-12-01 16:33:08,327 log Unauthorized: /api/complaints/dashboards/admin/stats/
+WARNING 2025-12-01 16:33:08,328 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 16:34:09,593 ai_service Language detection error: No module named 'googletrans'
+ERROR 2025-12-01 16:34:10,096 log Internal Server Error: /api/complaints/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py", line 192, in perform_create
+    logger.info(f"Complaint {track_id} validated - Confidence: {validation_result['confidence']:.2f}, "
+    ^^^^^^
+UnboundLocalError: cannot access local variable 'logger' where it is not associated with a value
+INFO 2025-12-01 16:36:38,503 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py changed, reloading.
+INFO 2025-12-01 16:36:40,775 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 16:37:11,122 views Auto-changing status from 'new' to 'assigned' for complaint 19
+INFO 2025-12-01 16:37:11,145 views Complaint 19 updated: status=assigned, assigned_to=academic (Academic Staff)
+INFO 2025-12-01 16:37:14,199 notifications Notification sent to student@uog.edu.et for complaint CMP-12E4785A
+WARNING 2025-12-01 16:37:42,313 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 16:37:42,313 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+INFO 2025-12-01 16:38:26,919 views Complaint 19 updated: status=in_progress, assigned_to=academic (Academic Staff)
+INFO 2025-12-01 16:38:29,330 notifications Notification sent to student@uog.edu.et for complaint CMP-12E4785A
+WARNING 2025-12-01 16:38:55,254 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 16:38:55,259 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 16:38:57,163 log Unauthorized: /api/complaints/dashboards/maintenance/tasks/
+WARNING 2025-12-01 16:39:01,022 log Unauthorized: /api/auth/logout/
+WARNING 2025-12-01 16:39:03,306 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 16:39:03,308 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 16:39:32,435 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 16:39:32,438 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+INFO 2025-12-01 16:41:25,244 views Complaint 19 updated: status=resolved, assigned_to=academic (Academic Staff)
+INFO 2025-12-01 16:41:27,847 notifications Notification sent to student@uog.edu.et for complaint CMP-12E4785A
+WARNING 2025-12-01 16:42:41,688 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 16:42:41,689 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+INFO 2025-12-01 16:55:30,918 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py changed, reloading.
+INFO 2025-12-01 16:55:33,685 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-01 17:00:41,311 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 17:00:41,312 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+ERROR 2025-12-01 17:00:49,048 log Internal Server Error: /api/public/track/CMP-12E4785A/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py", line 71, in get
+    "resolution": c.resolution,
+                  ^^^^^^^^^^^^
+AttributeError: 'Complaint' object has no attribute 'resolution'
+WARNING 2025-12-01 17:00:56,308 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 17:01:06,849 log Unauthorized: /api/complaints/19/
+WARNING 2025-12-01 17:01:06,864 log Unauthorized: /api/complaints/19/
+WARNING 2025-12-01 17:01:26,300 log Unauthorized: /api/complaints/
+ERROR 2025-12-01 17:01:54,087 log Internal Server Error: /api/public/track/CMP-12E4785A/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py", line 71, in get
+    "resolution": c.resolution,
+                  ^^^^^^^^^^^^
+AttributeError: 'Complaint' object has no attribute 'resolution'
+WARNING 2025-12-01 17:01:56,303 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 17:02:26,305 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 17:02:56,305 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 17:03:05,821 log Unauthorized: /api/auth/login/
+ERROR 2025-12-01 17:04:56,234 log Internal Server Error: /api/public/track/CMP-12E4785A/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py", line 71, in get
+    "resolution": c.resolution,
+                  ^^^^^^^^^^^^
+AttributeError: 'Complaint' object has no attribute 'resolution'
+INFO 2025-12-01 17:05:27,134 autoreload Watching for file changes with StatReloader
+ERROR 2025-12-01 17:05:38,716 log Internal Server Error: /api/public/track/CMP-12E4785A/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py", line 71, in get
+    "resolution": c.resolution,
+                  ^^^^^^^^^^^^
+AttributeError: 'Complaint' object has no attribute 'resolution'
+INFO 2025-12-01 17:06:05,733 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py changed, reloading.
+INFO 2025-12-01 17:06:06,539 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py changed, reloading.
+INFO 2025-12-01 17:06:07,838 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 17:06:08,214 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-01 17:08:22,270 log Unauthorized: /api/public/track/CMP-12E4785A/
+WARNING 2025-12-01 17:08:26,315 log Unauthorized: /api/complaints/dashboards/dean/pending_approvals/
+WARNING 2025-12-01 17:08:26,317 log Unauthorized: /api/complaints/dashboards/dean/stats/
+WARNING 2025-12-01 17:08:26,319 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 17:08:36,309 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 17:53:56,699 log Unauthorized: /api/complaints/dashboards/dean/stats/
+WARNING 2025-12-01 17:53:56,715 log Unauthorized: /api/complaints/dashboards/dean/pending_approvals/
+WARNING 2025-12-01 17:53:56,718 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 17:54:01,818 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 17:54:02,365 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 17:54:02,885 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 17:54:03,493 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 17:54:03,495 log Unauthorized: /api/auth/me/
+WARNING 2025-12-01 17:54:03,531 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 17:54:03,587 log Unauthorized: /api/auth/me/
+WARNING 2025-12-01 17:54:04,802 log Unauthorized: /api/auth/me/
+WARNING 2025-12-01 17:54:04,804 log Unauthorized: /api/complaints/19/
+WARNING 2025-12-01 17:54:04,823 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 17:54:04,828 log Unauthorized: /api/auth/me/
+WARNING 2025-12-01 17:54:04,838 log Unauthorized: /api/complaints/19/
+WARNING 2025-12-01 17:54:04,839 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 17:54:04,864 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 17:54:05,000 log Unauthorized: /api/auth/me/
+WARNING 2025-12-01 17:54:05,013 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 17:54:05,050 log Unauthorized: /api/auth/logout/
+WARNING 2025-12-01 17:54:05,061 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 17:54:05,090 log Unauthorized: /api/auth/logout/
+WARNING 2025-12-01 17:54:05,181 log Unauthorized: /api/auth/me/
+WARNING 2025-12-01 17:54:05,183 log Unauthorized: /api/auth/logout/
+WARNING 2025-12-01 17:54:05,214 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 17:54:05,254 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 17:54:05,307 log Unauthorized: /api/auth/logout/
+WARNING 2025-12-01 17:54:05,311 log Unauthorized: /api/auth/me/
+WARNING 2025-12-01 17:54:05,349 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 17:54:05,523 log Unauthorized: /api/auth/logout/
+WARNING 2025-12-01 17:54:05,541 log Unauthorized: /api/auth/me/
+WARNING 2025-12-01 17:54:05,775 log Unauthorized: /api/auth/logout/
+WARNING 2025-12-01 17:54:05,792 log Unauthorized: /api/auth/logout/
+WARNING 2025-12-01 17:54:05,850 log Unauthorized: /api/auth/logout/
+INFO 2025-12-01 18:31:03,364 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-01 18:32:51,474 log Unauthorized: /api/complaints/19/
+WARNING 2025-12-01 18:32:51,494 log Unauthorized: /api/complaints/19/
+WARNING 2025-12-01 18:32:59,487 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 18:32:59,495 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-01 18:32:59,542 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 18:32:59,555 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+INFO 2025-12-01 19:05:47,634 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py changed, reloading.
+INFO 2025-12-01 19:05:52,262 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 19:07:29,694 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 19:25:23,999 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\serializers.py changed, reloading.
+INFO 2025-12-01 19:25:24,384 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\serializers.py changed, reloading.
+INFO 2025-12-01 19:25:27,873 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 19:25:27,932 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 19:25:40,512 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\serializers.py changed, reloading.
+INFO 2025-12-01 19:25:40,542 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\serializers.py changed, reloading.
+INFO 2025-12-01 19:25:43,578 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 19:25:43,623 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-01 19:27:24,314 log Unauthorized: /api/complaints/dashboards/admin/stats/
+WARNING 2025-12-01 19:27:24,314 log Unauthorized: /api/complaints/
+INFO 2025-12-01 19:36:56,822 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\serializers.py changed, reloading.
+INFO 2025-12-01 19:36:57,166 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\serializers.py changed, reloading.
+INFO 2025-12-01 19:37:02,722 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 19:37:02,845 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 19:37:17,839 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\serializers.py changed, reloading.
+INFO 2025-12-01 19:37:17,854 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\serializers.py changed, reloading.
+INFO 2025-12-01 19:37:20,631 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 19:37:20,631 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-01 19:51:23,579 ai_service Language detection error: No module named 'googletrans'
+ERROR 2025-12-01 19:51:23,785 log Internal Server Error: /api/complaints/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py", line 189, in perform_create
+    logger.info(f"Complaint {track_id} created - Urgency: {urgency_score}, Language: {language}")
+    ^^^^^^
+UnboundLocalError: cannot access local variable 'logger' where it is not associated with a value
+INFO 2025-12-01 19:53:06,280 views Auto-changing status from 'new' to 'assigned' for complaint 20
+INFO 2025-12-01 19:53:06,300 views Complaint 20 updated: status=assigned, assigned_to=head_cs (Department Head)
+INFO 2025-12-01 19:53:10,516 notifications Notification sent to wudugetye@gmail.com for complaint CMP-CD717831
+WARNING 2025-12-01 19:57:04,303 log Unauthorized: /api/complaints/dashboards/dean/stats/
+WARNING 2025-12-01 19:57:04,309 log Unauthorized: /api/complaints/dashboards/dean/pending_approvals/
+WARNING 2025-12-01 19:57:04,314 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 19:57:13,321 log Bad Request: /api/complaints/dashboards/dean/stats/
+WARNING 2025-12-01 19:57:34,325 log Bad Request: /api/complaints/dashboards/dean/stats/
+WARNING 2025-12-01 19:57:43,311 log Bad Request: /api/complaints/dashboards/dean/stats/
+WARNING 2025-12-01 19:58:04,326 log Bad Request: /api/complaints/dashboards/dean/stats/
+WARNING 2025-12-01 19:58:16,964 ai_service Language detection error: No module named 'googletrans'
+ERROR 2025-12-01 19:58:17,122 log Internal Server Error: /api/complaints/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py", line 189, in perform_create
+    logger.info(f"Complaint {track_id} created - Urgency: {urgency_score}, Language: {language}")
+    ^^^^^^
+UnboundLocalError: cannot access local variable 'logger' where it is not associated with a value
+WARNING 2025-12-01 19:58:34,322 log Bad Request: /api/complaints/dashboards/dean/stats/
+WARNING 2025-12-01 19:59:04,319 log Bad Request: /api/complaints/dashboards/dean/stats/
+WARNING 2025-12-01 19:59:08,325 log Bad Request: /api/complaints/dashboards/dean/stats/
+WARNING 2025-12-01 19:59:43,312 log Bad Request: /api/complaints/dashboards/dean/stats/
+WARNING 2025-12-01 20:00:08,320 log Bad Request: /api/complaints/dashboards/dean/stats/
+WARNING 2025-12-01 20:00:08,351 log Bad Request: /api/complaints/dashboards/dean/stats/
+WARNING 2025-12-01 20:01:08,329 log Bad Request: /api/complaints/dashboards/dean/stats/
+WARNING 2025-12-01 20:01:08,365 log Bad Request: /api/complaints/dashboards/dean/stats/
+INFO 2025-12-01 20:01:11,454 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\ai_service.py changed, reloading.
+INFO 2025-12-01 20:01:12,238 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\ai_service.py changed, reloading.
+INFO 2025-12-01 20:01:14,995 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 20:01:15,372 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 20:01:30,485 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\ai_service.py changed, reloading.
+INFO 2025-12-01 20:01:31,273 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\ai_service.py changed, reloading.
+INFO 2025-12-01 20:01:33,655 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 20:01:34,120 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-01 20:02:08,338 log Bad Request: /api/complaints/dashboards/dean/stats/
+WARNING 2025-12-01 20:02:08,384 log Bad Request: /api/complaints/dashboards/dean/stats/
+WARNING 2025-12-01 20:07:36,725 ai_service Language detection error: No module named 'googletrans'
+ERROR 2025-12-01 20:07:36,842 log Internal Server Error: /api/complaints/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py", line 189, in perform_create
+    logger.info(f"Complaint {track_id} created - Urgency: {urgency_score}, Language: {language}")
+    ^^^^^^
+UnboundLocalError: cannot access local variable 'logger' where it is not associated with a value
+WARNING 2025-12-01 20:09:30,167 ai_service Language detection error: No module named 'googletrans'
+ERROR 2025-12-01 20:09:30,329 log Internal Server Error: /api/complaints/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py", line 189, in perform_create
+    logger.info(f"Complaint {track_id} created - Urgency: {urgency_score}, Language: {language}")
+    ^^^^^^
+UnboundLocalError: cannot access local variable 'logger' where it is not associated with a value
+WARNING 2025-12-01 20:09:58,630 log Bad Request: /api/complaints/dashboards/dean/stats/
+INFO 2025-12-01 20:11:07,672 views Auto-changing status from 'new' to 'assigned' for complaint 23
+INFO 2025-12-01 20:11:07,690 views Complaint 23 updated: status=assigned, assigned_to=nonacademic (Non-academic Staff)
+INFO 2025-12-01 20:11:10,392 notifications Notification sent to wudugetye@gmail.com for complaint CMP-B99DEACB
+WARNING 2025-12-01 20:11:45,295 log Unauthorized: /api/complaints/dashboards/admin/stats/
+WARNING 2025-12-01 20:11:45,297 log Unauthorized: /api/complaints/
+INFO 2025-12-01 20:21:16,205 views Complaint 23 updated: status=resolved, assigned_to=nonacademic (Non-academic Staff)
+INFO 2025-12-01 20:21:19,071 notifications Notification sent to wudugetye@gmail.com for complaint CMP-B99DEACB
+WARNING 2025-12-01 20:22:09,594 log Unauthorized: /api/auth/logout/
+WARNING 2025-12-01 20:22:11,307 log Unauthorized: /api/complaints/dashboards/admin/stats/
+WARNING 2025-12-01 20:22:11,309 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 20:22:58,299 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 20:23:28,301 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 20:23:58,301 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 20:24:28,300 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 20:24:58,296 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 20:25:28,303 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 20:26:08,303 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 20:27:08,312 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 20:28:08,444 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 20:29:08,312 log Unauthorized: /api/complaints/
+INFO 2025-12-01 20:34:28,281 views Complaint 27 updated: status=rejected, assigned_to=None
+INFO 2025-12-01 20:34:32,031 notifications Notification sent to abebe@uog.edu.et for complaint SLA-173104-3
+INFO 2025-12-01 20:49:29,348 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py changed, reloading.
+INFO 2025-12-01 20:49:29,895 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py changed, reloading.
+INFO 2025-12-01 20:49:31,963 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 20:49:32,255 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 20:56:46,033 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-01 20:59:55,305 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-01 20:59:55,306 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+INFO 2025-12-01 21:00:19,145 views Auto-changing status from 'new' to 'assigned' for complaint 22
+INFO 2025-12-01 21:00:19,164 views Complaint 22 updated: status=assigned, assigned_to=maint@example.com (Maintenance Worker)
+INFO 2025-12-01 21:00:22,779 notifications Notification sent to wudugetye@gmail.com for complaint CMP-F0CAF785
+WARNING 2025-12-01 21:00:59,298 log Unauthorized: /api/complaints/dashboards/admin/stats/
+WARNING 2025-12-01 21:00:59,299 log Unauthorized: /api/complaints/
+INFO 2025-12-01 21:01:28,365 views Complaint 22 updated: status=assigned, assigned_to=maintenance (Maintenance Worker)
+INFO 2025-12-01 21:03:12,567 views Complaint 22 updated: status=resolved, assigned_to=maintenance (Maintenance Worker)
+INFO 2025-12-01 21:03:15,278 notifications Notification sent to wudugetye@gmail.com for complaint CMP-F0CAF785
+INFO 2025-12-01 21:10:43,986 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\dashboard_views.py changed, reloading.
+INFO 2025-12-01 21:10:44,084 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\dashboard_views.py changed, reloading.
+INFO 2025-12-01 21:10:46,338 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 21:10:46,342 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 21:20:48,919 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\config\settings.py changed, reloading.
+INFO 2025-12-01 21:20:49,562 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\config\settings.py changed, reloading.
+INFO 2025-12-01 21:20:50,774 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 21:20:51,112 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 21:21:20,731 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\config\settings.py changed, reloading.
+INFO 2025-12-01 21:21:21,092 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\config\settings.py changed, reloading.
+INFO 2025-12-01 21:21:22,537 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 21:21:22,648 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 21:23:13,381 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 21:38:36,490 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\config\settings.py changed, reloading.
+INFO 2025-12-01 21:38:41,642 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-01 21:56:41,335 log Unauthorized: /api/complaints/
+WARNING 2025-12-01 21:56:41,336 log Unauthorized: /api/complaints/dashboards/admin/stats/
+WARNING 2025-12-01 21:57:11,614 log Unauthorized: /api/complaints/dashboards/admin/stats/
+WARNING 2025-12-01 21:57:11,617 log Unauthorized: /api/complaints/
+INFO 2025-12-01 22:01:26,125 autoreload Watching for file changes with StatReloader
+ERROR 2025-12-01 22:02:34,039 log Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+ERROR 2025-12-01 22:02:34,644 log Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+INFO 2025-12-01 22:05:20,818 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\config\settings.py changed, reloading.
+INFO 2025-12-01 22:05:31,039 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 22:08:21,473 autoreload Watching for file changes with StatReloader
+ERROR 2025-12-01 22:09:13,249 log Invalid HTTP_HOST header: '10.139.27.50:8000'. You may need to add '10.139.27.50' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '10.139.27.50:8000'. You may need to add '10.139.27.50' to ALLOWED_HOSTS.
+ERROR 2025-12-01 22:10:23,092 log Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+ERROR 2025-12-01 22:10:25,315 log Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+ERROR 2025-12-01 22:10:26,096 log Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+ERROR 2025-12-01 22:15:42,114 log Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+ERROR 2025-12-01 22:16:28,374 log Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+ERROR 2025-12-01 22:16:29,339 log Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+INFO 2025-12-01 22:19:49,691 autoreload Watching for file changes with StatReloader
+ERROR 2025-12-01 22:20:28,136 log Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+ERROR 2025-12-01 22:20:28,960 log Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+ERROR 2025-12-01 22:20:54,828 log Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.137.1:8000'. You may need to add '192.168.137.1' to ALLOWED_HOSTS.
+INFO 2025-12-01 22:23:33,392 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-01 22:24:08,362 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 22:24:18,164 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 22:24:19,409 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 22:24:20,199 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 22:24:43,676 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 22:24:44,937 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 22:24:45,651 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 22:24:46,281 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 22:25:15,318 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 22:25:16,479 log Unauthorized: /api/auth/login/
+WARNING 2025-12-01 22:32:12,181 ai_service Language detection error: No module named 'googletrans'
+ERROR 2025-12-01 22:32:12,496 log Internal Server Error: /api/complaints/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py", line 189, in perform_create
+    logger.info(f"Complaint {track_id} created - Urgency: {urgency_score}, Language: {language}")
+    ^^^^^^
+UnboundLocalError: cannot access local variable 'logger' where it is not associated with a value
+WARNING 2025-12-01 22:33:52,782 ai_service Language detection error: No module named 'googletrans'
+ERROR 2025-12-01 22:33:52,950 log Internal Server Error: /api/complaints/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py", line 189, in perform_create
+    logger.info(f"Complaint {track_id} created - Urgency: {urgency_score}, Language: {language}")
+    ^^^^^^
+UnboundLocalError: cannot access local variable 'logger' where it is not associated with a value
+INFO 2025-12-01 22:35:48,120 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py changed, reloading.
+INFO 2025-12-01 22:35:52,969 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 22:37:34,822 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-01 22:38:12,189 ai_service Language detection error: No module named 'googletrans'
+ERROR 2025-12-01 22:38:12,494 log Internal Server Error: /api/complaints/
+Traceback (most recent call last):
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\generics.py", line 246, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py", line 189, in perform_create
+    logger.info(f"Complaint {track_id} created - Urgency: {urgency_score}, Language: {language}")
+    ^^^^^^
+UnboundLocalError: cannot access local variable 'logger' where it is not associated with a value
+INFO 2025-12-01 22:40:12,289 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\views.py changed, reloading.
+INFO 2025-12-01 22:40:16,422 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 22:41:30,835 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-01 22:42:04,764 ai_service Language detection error: No module named 'googletrans'
+INFO 2025-12-01 22:42:04,940 views Complaint CMP-AD607AB5 created - Urgency: low, Language: en
+INFO 2025-12-01 22:42:07,944 utils Email sent successfully to student@uog.edu.et (type: submission_confirmation)
+INFO 2025-12-01 22:48:17,661 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\validators.py changed, reloading.
+INFO 2025-12-01 22:48:21,871 autoreload Watching for file changes with StatReloader
+INFO 2025-12-01 22:53:11,990 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 08:47:08,600 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 08:52:11,471 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\validators.py changed, reloading.
+INFO 2025-12-02 08:52:17,326 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 08:55:14,270 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-02 08:56:34,605 log Unauthorized: /api/auth/me/
+WARNING 2025-12-02 08:56:34,606 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-02 08:56:34,606 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-02 08:56:34,673 log Unauthorized: /api/auth/logout/
+WARNING 2025-12-02 08:56:34,679 log Unauthorized: /api/auth/me/
+WARNING 2025-12-02 08:56:34,685 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-02 08:56:34,698 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-02 08:56:34,802 log Unauthorized: /api/auth/logout/
+WARNING 2025-12-02 08:57:33,637 log Bad Request: /api/complaints/
+WARNING 2025-12-02 08:58:11,938 log Bad Request: /api/complaints/
+WARNING 2025-12-02 08:58:25,757 log Bad Request: /api/complaints/
+WARNING 2025-12-02 08:59:39,941 log Not Found: /
+WARNING 2025-12-02 08:59:41,367 log Not Found: /favicon.ico
+WARNING 2025-12-02 09:04:17,551 ai_service Language detection error: No module named 'googletrans'
+INFO 2025-12-02 09:04:17,708 views Complaint CMP-09FC44CB created - Urgency: low, Language: en
+ERROR 2025-12-02 09:04:17,709 views Failed to upload file Chapter 3 JavaFX.pdf: 'list' object has no attribute 'split'
+INFO 2025-12-02 09:04:22,787 utils Email sent successfully to student@uog.edu.et (type: submission_confirmation)
+INFO 2025-12-02 09:05:38,082 views Auto-changing status from 'new' to 'assigned' for complaint 33
+INFO 2025-12-02 09:05:38,103 views Complaint 33 updated: status=assigned, assigned_to=depthead@example.com (Department Head)
+INFO 2025-12-02 09:05:41,648 notifications Notification sent to student@uog.edu.et for complaint CMP-09FC44CB
+INFO 2025-12-02 09:06:09,214 views Complaint 33 updated: status=resolved, assigned_to=depthead@example.com (Department Head)
+INFO 2025-12-02 09:06:12,716 notifications Notification sent to student@uog.edu.et for complaint CMP-09FC44CB
+WARNING 2025-12-02 09:25:54,602 log Unauthorized: /api/auth/campuses/
+WARNING 2025-12-02 09:25:54,605 log Unauthorized: /api/auth/me/
+WARNING 2025-12-02 09:25:54,624 log Unauthorized: /api/auth/campuses/
+WARNING 2025-12-02 09:25:54,627 log Unauthorized: /api/auth/me/
+WARNING 2025-12-02 09:25:54,646 log Unauthorized: /api/auth/logout/
+WARNING 2025-12-02 09:25:54,649 log Unauthorized: /api/auth/logout/
+INFO 2025-12-02 10:27:16,192 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-02 10:29:03,541 log Not Found: /favicon.ico
