@@ -9,6 +9,7 @@ import CreateComplaintSimple from './pages/CreateComplaintSimple';
 import CreateComplaintDebug from './pages/CreateComplaintDebug';
 import TrackComplaint from './pages/TrackComplaint';
 import PasswordReset from './pages/PasswordReset';
+import Chatbot from './components/Chatbot';
 import { AuthProvider, useAuth } from './context/AuthContext';
 
 // Protected Route Component
@@ -45,6 +46,9 @@ function App() {
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>
+        
+        {/* AI Chatbot - Available on all pages */}
+        <Chatbot />
       </Router>
     </AuthProvider>
   );

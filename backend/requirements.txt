@@ -23,6 +23,9 @@ textblob>=0.17.1
 googletrans>=4.0.0rc1
 vaderSentiment>=3.3.2
 
+# AI/LLM Integration
+google-generativeai>=0.3.0
+
 # Utilities
 python-decouple>=3.8
 django-filter>=23.5

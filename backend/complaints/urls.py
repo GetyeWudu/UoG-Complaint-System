@@ -8,6 +8,7 @@ from .dashboard_views import (
 )
 from .approval_views import ApprovalWorkflowViewSet
 from .reporting_views import ReportingViewSet
+from .chatbot_views import chat_message, suggested_questions
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
@@ -51,6 +52,10 @@ urlpatterns = [
     
     # Staff List
     path('staff/', views.StaffListView.as_view(), name='staff-list'),
+    
+    # Chatbot
+    path('chatbot/message/', chat_message, name='chatbot-message'),
+    path('chatbot/suggestions/', suggested_questions, name='chatbot-suggestions'),
 ]
 
 urlpatterns += router.urls

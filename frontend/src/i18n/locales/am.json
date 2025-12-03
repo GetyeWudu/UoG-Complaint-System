@@ -163,6 +163,15 @@
       "academic": "የአካዳሚክ ሰራተኛ",
       "nonAcademic": "የአስተዳደር ሰራተኛ"
     }
+  },
+  "chatbot": {
+    "title": "AI ረዳት",
+    "online": "በመስመር ላይ",
+    "clear": "ውይይት አጽዳ",
+    "close": "ዝጋ",
+    "placeholder": "ጥያቄዎን ይጻፉ...",
+    "suggestedQuestions": "የሚመከሩ ጥያቄዎች:",
+    "footer": "በ AI የተጎለበተ • የUoG የቅሬታ ስርዓት"
   }
 }
 

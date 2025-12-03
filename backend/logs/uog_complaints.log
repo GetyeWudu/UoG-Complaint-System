@@ -2464,3 +2464,109 @@ INFO 2025-12-02 10:27:16,192 autoreload Watching for file changes with StatReloa
 WARNING 2025-12-02 10:29:03,541 log Not Found: /favicon.ico
 INFO 2025-12-02 11:00:01,777 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\accounts\urls.py changed, reloading.
 INFO 2025-12-02 11:00:05,016 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 11:06:20,470 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\urls.py changed, reloading.
+INFO 2025-12-02 11:06:22,204 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 11:06:26,533 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\urls.py changed, reloading.
+INFO 2025-12-02 11:06:28,003 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 13:27:05,641 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-02 13:30:02,943 log Not Found: /api/api/complaints/chatbot/suggestions/
+WARNING 2025-12-02 13:30:11,283 log Not Found: /api/api/complaints/chatbot/message/
+INFO 2025-12-02 17:36:10,419 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-02 17:37:03,437 log Not Found: /api/api/complaints/chatbot/suggestions/
+WARNING 2025-12-02 17:37:12,964 log Not Found: /api/api/complaints/chatbot/message/
+WARNING 2025-12-02 17:39:37,480 log Not Found: /api/api/complaints/chatbot/message/
+INFO 2025-12-02 17:49:42,706 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\chatbot_service.py changed, reloading.
+INFO 2025-12-02 17:49:45,463 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 17:50:06,738 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\uog_knowledge_base.py changed, reloading.
+INFO 2025-12-02 17:50:08,506 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 17:50:31,519 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\uog_knowledge_base.py changed, reloading.
+INFO 2025-12-02 17:50:33,370 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 17:50:58,356 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\uog_knowledge_base.py changed, reloading.
+INFO 2025-12-02 17:50:59,983 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 17:51:35,931 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\chatbot_service.py changed, reloading.
+INFO 2025-12-02 17:51:37,771 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 17:52:36,976 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\uog_knowledge_base.py changed, reloading.
+INFO 2025-12-02 17:52:38,708 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 17:53:18,416 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\uog_knowledge_base.py changed, reloading.
+INFO 2025-12-02 17:53:20,076 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 17:57:44,108 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-02 17:57:58,686 log Not Found: /api/api/complaints/chatbot/suggestions/
+WARNING 2025-12-02 17:58:02,048 log Not Found: /api/api/complaints/chatbot/message/
+WARNING 2025-12-02 17:58:15,000 log Not Found: /api/api/complaints/chatbot/message/
+INFO 2025-12-02 17:59:29,622 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\chatbot_service.py changed, reloading.
+INFO 2025-12-02 17:59:31,405 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-02 18:01:56,330 log Method Not Allowed: /api/complaints/chatbot/message/
+INFO 2025-12-02 18:30:04,657 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\uog_knowledge_base.py changed, reloading.
+INFO 2025-12-02 18:30:06,798 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 18:30:21,537 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\uog_knowledge_base.py changed, reloading.
+INFO 2025-12-02 18:30:23,206 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 18:30:41,183 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\uog_knowledge_base.py changed, reloading.
+INFO 2025-12-02 18:30:43,072 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 18:30:59,813 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\uog_knowledge_base.py changed, reloading.
+INFO 2025-12-02 18:31:01,687 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 18:31:18,670 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\uog_knowledge_base.py changed, reloading.
+INFO 2025-12-02 18:31:20,658 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 18:31:38,373 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\uog_knowledge_base.py changed, reloading.
+INFO 2025-12-02 18:31:40,424 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 18:31:59,488 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\uog_knowledge_base.py changed, reloading.
+INFO 2025-12-02 18:32:01,299 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 18:32:28,382 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\uog_knowledge_base.py changed, reloading.
+INFO 2025-12-02 18:32:30,198 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 18:37:38,785 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 18:45:46,371 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\uog_knowledge_base.py changed, reloading.
+INFO 2025-12-02 18:45:48,019 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 18:46:05,625 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\uog_knowledge_base.py changed, reloading.
+INFO 2025-12-02 18:46:07,272 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 18:47:00,165 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\chatbot_service.py changed, reloading.
+INFO 2025-12-02 18:47:02,154 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 18:47:36,360 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\uog_knowledge_base.py changed, reloading.
+INFO 2025-12-02 18:47:38,554 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 18:49:36,381 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 19:11:33,612 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\chatbot_service.py changed, reloading.
+INFO 2025-12-02 19:11:35,810 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 19:12:03,877 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\chatbot_service.py changed, reloading.
+INFO 2025-12-02 19:12:05,748 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 19:12:12,871 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\chatbot_service.py changed, reloading.
+INFO 2025-12-02 19:12:14,801 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 19:49:56,715 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 19:52:43,181 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 19:59:00,823 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\chatbot_service.py changed, reloading.
+INFO 2025-12-02 19:59:06,377 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 20:00:11,062 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 20:16:46,664 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 20:19:32,426 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\chatbot_service.py changed, reloading.
+INFO 2025-12-02 20:19:37,848 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 20:40:54,199 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 21:06:54,917 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-02 21:30:24,783 log Bad Request: /api/complaints/
+WARNING 2025-12-02 21:30:36,900 log Bad Request: /api/complaints/
+WARNING 2025-12-02 21:30:50,960 log Bad Request: /api/complaints/
+INFO 2025-12-02 21:32:05,047 views Auto-changing status from 'new' to 'assigned' for complaint 32
+INFO 2025-12-02 21:32:05,070 views Complaint 32 updated: status=assigned, assigned_to=staff@example.com (Academic Staff)
+INFO 2025-12-02 21:32:08,014 notifications Notification sent to student@uog.edu.et for complaint CMP-AD607AB5
+INFO 2025-12-02 21:56:04,211 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\chatbot_service.py changed, reloading.
+INFO 2025-12-02 21:56:07,613 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 22:02:36,521 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 22:13:52,671 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\chatbot_service.py changed, reloading.
+INFO 2025-12-02 22:13:55,307 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 22:14:00,836 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\chatbot_service.py changed, reloading.
+INFO 2025-12-02 22:14:02,960 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 22:14:19,938 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\chatbot_service.py changed, reloading.
+INFO 2025-12-02 22:14:21,714 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 22:30:10,927 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 22:40:24,842 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 22:46:23,498 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\chatbot_service.py changed, reloading.
+INFO 2025-12-02 22:46:26,451 autoreload Watching for file changes with StatReloader
+INFO 2025-12-02 22:53:35,740 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-02 22:59:06,395 log Bad Request: /api/complaints/
+WARNING 2025-12-02 22:59:17,941 log Bad Request: /api/complaints/
+WARNING 2025-12-02 23:00:04,257 log Bad Request: /api/complaints/
+WARNING 2025-12-02 23:00:53,553 log Bad Request: /api/complaints/
+WARNING 2025-12-02 23:01:20,636 log Bad Request: /api/complaints/
+INFO 2025-12-03 09:55:28,089 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 14:29:23,129 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 20:20:39,521 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-03 20:22:37,062 log Bad Request: /api/complaints/
+WARNING 2025-12-03 20:23:19,076 log Bad Request: /api/complaints/
+INFO 2025-12-03 20:26:51,953 views Complaint 32 updated: status=assigned, assigned_to=nonacademic (Non-academic Staff)
+INFO 2025-12-03 21:24:55,846 autoreload Watching for file changes with StatReloader

@@ -163,6 +163,15 @@
       "academic": "Academic Staff",
       "nonAcademic": "Non-academic Staff"
     }
+  },
+  "chatbot": {
+    "title": "AI Assistant",
+    "online": "Online",
+    "clear": "Clear chat",
+    "close": "Close",
+    "placeholder": "Type your question...",
+    "suggestedQuestions": "Suggested questions:",
+    "footer": "Powered by AI • UoG Complaint System"
   }
 }
 

@@ -1,138 +1,105 @@
-# University of Gondar - Complaint Management & Feedback System
+# University of Gondar (UoG) Complaint Management System
 
-A comprehensive complaint management system for the University of Gondar, built with Django REST Framework and React.
+A comprehensive web-based complaint management system for University of Gondar, featuring AI-powered chatbot assistance, multi-language support, and role-based dashboards.
 
-## 🎉 STATUS: 100% COMPLETE & PRODUCTION READY ✅
+## Overview
 
-**Version:** 1.0.0 | **Date:** November 28, 2025 | **All Features Working!**
+This system streamlines the complaint handling process at UoG by providing:
+- Automated complaint submission and tracking
+- AI-powered chatbot for instant university information
+- Role-based dashboards (Student, Staff, Dean, Admin)
+- Email notifications and SLA tracking
+- Multi-language support (English & Amharic)
+- Public complaint tracking without login
 
-👉 **[Quick Start Guide](QUICK_START.md)** | **[Complete Documentation Index](INDEX.md)** | **[What's New](WHATS_NEW.md)**
-
-## 📋 Table of Contents
-
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Quick Start](#quick-start)
-- [Documentation](#documentation)
-- [New Features (Nov 2025)](#new-features-nov-2025)
-- [API Documentation](#api-documentation)
-- [Testing](#testing)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-
----
-
-## ✨ Features
-
-### Authentication & Security
-- ✅ User registration and login
-- ✅ Secure password reset via email
-- ✅ OAuth2 integration (scaffold for UoG Portal)
-- ✅ Account linking (local + OAuth)
-- ✅ Activity logging for security events
-- ✅ Account locking after failed login attempts
-- ✅ Argon2 password hashing
-
-### Complaint Management
-- ✅ Submit complaints (authenticated & anonymous)
-- ✅ Track complaints by tracking ID
-- ✅ Auto-routing based on configurable rules
-- ✅ Assignment workflow
-- ✅ Status management with transitions
-- ✅ Threaded comments/messaging
-- ✅ Feedback and rating system
-
-### File Management
-- ✅ Multiple file uploads per complaint
-- ✅ File validation (size, type, MIME)
-- ✅ Authenticated file serving
-- ✅ Permission-based access control
-
-### Notifications
-- ✅ Email notifications (submission, assignment, status changes)
-- ✅ Templated emails (HTML + text)
-- ✅ In-app notifications with bell icon
-- ✅ Real-time updates every 30 seconds
-- ✅ 6 notification types for different status changes
-
-### Search & Filtering
-- ✅ Real-time search by title, description, tracking ID
-- ✅ Filter by status (new, assigned, in progress, resolved, etc.)
-- ✅ Filter by priority (low, medium, high, critical)
-- ✅ Combined filters work together
-- ✅ Clear filters button
-
-### Comments & Communication
-- ✅ Add comments to complaints
-- ✅ View comment threads
-- ✅ User attribution and timestamps
-- ✅ Activity timeline showing all events
-
-### Audit & Compliance
-- ✅ Comprehensive event logging
-- ✅ Activity tracking
-- ✅ Full audit trail for all actions
-- ✅ Audit trail for all actions
-
-### Roles & Permissions
-- Student
-- Academic Staff
-- Non-academic Staff
-- Maintenance Worker
-- Department Head
-- System Admin
-- Super Admin
-
----
-
-## 🎉 New Features (Nov 2025)
-
-### Just Added!
-- 🔔 **Email Notifications** - Students receive emails when complaint status changes
-- 🔍 **Advanced Search** - Search by title, description, or tracking ID
-- 🎯 **Smart Filtering** - Filter by status and priority
-- 💬 **Comments System** - Add and view comments on complaints
-- 📊 **Activity Timeline** - See all events on a complaint
-- 🔄 **Real-time Updates** - Dashboard auto-refreshes every 30 seconds
-- 🎨 **Enhanced UI** - Better loading states, empty states, and styling
-
-See [FEATURES_ADDED.md](FEATURES_ADDED.md) for complete details!
-
----
-
-## 🛠️ Tech Stack
+## Technology Stack
 
 ### Backend
-- **Framework:** Django 5.0+
-- **API:** Django REST Framework
-- **Database:** SQLite (dev), PostgreSQL-ready (prod)
-- **Authentication:** Token-based (DRF)
-- **Password Hashing:** Argon2
-- **File Processing:** Pillow
-- **AI Analysis:** TextBlob
-- **API Docs:** drf-spectacular (Swagger)
-- **Testing:** pytest, pytest-django
+- Django 5.2.8 (Python web framework)
+- Django REST Framework (API)
+- SQLite (Development database)
+- Groq AI / Google Gemini (AI chatbot)
+- SMTP Email integration
 
 ### Frontend
-- **Framework:** React 19.2
-- **Build Tool:** Vite
-- **Styling:** TailwindCSS
-- **Charts:** Recharts
-- **HTTP Client:** Axios
+- React 18.3.1
+- Vite (Build tool)
+- React Router (Navigation)
+- Axios (HTTP client)
+- i18next (Internationalization)
 
----
+## Key Features
 
-## 🚀 Quick Start
+### 1. Complaint Management
+- Submit complaints with file attachments
+- Track complaint status in real-time
+- Automated tracking ID generation (CMP-XXXXXXXX)
+- SLA (Service Level Agreement) monitoring
+- Status workflow: New → Assigned → In Progress → Resolved → Closed
+
+### 2. AI Chatbot Assistant
+- Powered by Groq AI (Llama 3.3 70B model)
+- Fallback to Google Gemini API
+- Comprehensive UoG knowledge base
+- Answers questions about:
+  - University information and history
+  - Colleges and departments
+  - Admission procedures
+  - Fees and scholarships
+  - Library services
+  - Course registration
+  - Campus facilities
+- Multi-language support (English/Amharic)
+
+### 3. Role-Based Dashboards
+
+**Student Dashboard:**
+- Submit new complaints
+- View complaint history
+- Track complaint status
+- Access AI chatbot
+
+**Staff Dashboard:**
+- View assigned complaints
+- Update complaint status
+- Add internal notes
+- Assign complaints to other staff
+
+**Dean Dashboard:**
+- Monitor college-specific complaints
+- Review complaint statistics
+- Approve resolutions
+
+**Admin Dashboard:**
+- System-wide complaint overview
+- User management
+- Analytics and reporting
+- System configuration
+
+### 4. Email Notifications
+- Complaint submission confirmation
+- Status update notifications
+- Assignment notifications
+- Resolution notifications
+- Configurable SMTP settings
+
+### 5. Multi-Language Support
+- English (default)
+- Amharic (አማርኛ)
+- Language switcher in UI
+- Translated complaint forms and dashboards
+
+## Installation & Setup
 
 ### Prerequisites
-- Python 3.10+
+- Python 3.10+ (Note: Python 3.14 may have compatibility issues)
 - Node.js 18+
 - Git
 
 ### Backend Setup
 
 ```bash
-# Navigate to backend
+# Navigate to backend directory
 cd backend
 
 # Create virtual environment
@@ -147,253 +114,193 @@ source venv/bin/activate
 # Install dependencies
 pip install -r requirements.txt
 
-# Configure environment
-copy .env.example .env  # Windows
-cp .env.example .env    # Linux/Mac
-
-# Edit .env and configure settings (especially EMAIL_* for notifications)
+# Configure environment variables
+# Copy .env.example to .env and update:
+# - GROQ_API_KEY (get from https://console.groq.com/)
+# - EMAIL_HOST_USER and EMAIL_HOST_PASSWORD
+# - SECRET_KEY
 
 # Run migrations
-python manage.py makemigrations
 python manage.py migrate
 
-# Create logs directory
-mkdir logs  # Windows
-mkdir -p logs  # Linux/Mac
+# Create test users
+python manage.py seed_test_users
 
-# Seed database with test data
-python manage.py seed_data
-
-# Run development server
-python manage.py runserver
+# Start development server
+python manage.py runserver 0.0.0.0:8000
 ```
-
-Backend will be available at: **http://127.0.0.1:8000**
 
 ### Frontend Setup
 
 ```bash
-# Navigate to frontend
+# Navigate to frontend directory
 cd frontend
 
 # Install dependencies
 npm install
 
-# Run development server
+# Start development server
 npm run dev
 ```
 
-Frontend will be available at: **http://localhost:5173**
+The application will be available at:
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:8000
 
----
+## Test Credentials
 
-## 📚 Documentation
+After running `seed_test_users`, you can login with:
 
-### 📖 Start Here
-- **[INDEX.md](INDEX.md)** - 🌟 Complete documentation index and guide
-- **[QUICK_START.md](QUICK_START.md)** - Get running in 5 minutes
-- **[COMPLETE_SYSTEM_SUMMARY.md](COMPLETE_SYSTEM_SUMMARY.md)** - Full system overview
+**Admin:**
+- Email: admin@uog.edu.et
+- Password: admin123
 
-### 🎯 By Role
-- **[ADMIN_GUIDE.md](ADMIN_GUIDE.md)** - For administrators managing the system
-- **[TESTING_GUIDE.md](TESTING_GUIDE.md)** - For QA and testing
-- **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)** - For DevOps and deployment
+**Student:**
+- Email: student@uog.edu.et
+- Password: student123
 
-### 🔧 Technical
-- **[SETUP.md](SETUP.md)** - Detailed installation instructions
-- **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - Architecture and code
-- **[API_QUICK_REFERENCE.md](API_QUICK_REFERENCE.md)** - API endpoints
+**Staff:**
+- Email: staff@example.com
+- Password: staff123
 
-### ✨ Features
-- **[FEATURES_ADDED.md](FEATURES_ADDED.md)** - Complete feature list
-- **[NOTIFICATION_GUIDE.md](NOTIFICATION_GUIDE.md)** - Email notification system
+**Dean:**
+- Email: dean@example.com
+- Password: dean123
 
-### 📋 Planning
-- **[ROADMAP.md](ROADMAP.md)** - Development timeline
-- **[PROGRESS.md](PROGRESS.md)** - Current progress
-- **[NEXT_STEPS.md](NEXT_STEPS.md)** - What's next
+## API Endpoints
 
----
+### Authentication
+- POST `/api/auth/login/` - User login
+- POST `/api/auth/logout/` - User logout
+- GET `/api/auth/me/` - Get current user
 
-## 📖 API Documentation
+### Complaints
+- GET `/api/complaints/` - List complaints
+- POST `/api/complaints/` - Create complaint
+- GET `/api/complaints/{id}/` - Get complaint details
+- PATCH `/api/complaints/{id}/` - Update complaint
+- GET `/api/public/track/{tracking_id}/` - Public tracking
 
-### Interactive Documentation
-- **Swagger UI:** http://127.0.0.1:8000/api/docs/
-- **ReDoc:** http://127.0.0.1:8000/api/redoc/
-- **OpenAPI Schema:** http://127.0.0.1:8000/api/schema/
+### Chatbot
+- POST `/api/complaints/chatbot/message/` - Send message to chatbot
+- GET `/api/complaints/chatbot/suggestions/` - Get suggested questions
 
-### Test Accounts
+### Dashboards
+- GET `/api/complaints/dashboards/student/stats/` - Student statistics
+- GET `/api/complaints/dashboards/admin/stats/` - Admin statistics
 
-| Email | Password | Role |
-|-------|----------|------|
-| student@example.com | Student123! | Student |
-| staff@example.com | Staff123! | Academic Staff |
-| nonstaff@example.com | NonStaff123! | Non-academic Staff |
-| maint@example.com | Maint123! | Maintenance Worker |
-| depthead@example.com | DeptHead123! | Department Head |
-| admin@example.com | Admin123! | System Admin |
-| super@example.com | Super123! | Super Admin |
+## AI Chatbot Configuration
 
-### Key Endpoints
+The system supports two AI providers:
 
-```
-Authentication:
-POST   /api/auth/register/              - Register new user
-POST   /api/auth/login/                 - Login
-POST   /api/auth/logout/                - Logout
-POST   /api/auth/password-reset/request/ - Request password reset
-POST   /api/auth/password-reset/confirm/ - Confirm password reset
-GET    /api/auth/me/                    - Get current user
+### Groq AI (Recommended)
+- Fast and generous rate limits (6000 requests/minute)
+- Free tier available
+- Get API key: https://console.groq.com/
+- Set in .env: `GROQ_API_KEY=gsk_...`
 
-Complaints:
-GET    /api/complaints/                 - List complaints
-POST   /api/complaints/                 - Create complaint
-GET    /api/complaints/{id}/            - Get complaint details
-PATCH  /api/complaints/{id}/            - Update complaint
-POST   /api/complaints/{id}/assign/     - Assign complaint
-POST   /api/complaints/{id}/status/     - Update status
-POST   /api/complaints/{id}/files/      - Upload files
-GET    /api/complaints/{id}/comments/   - List comments
-POST   /api/complaints/{id}/comments/   - Add comment
+### Google Gemini (Fallback)
+- Free tier: 15 requests/minute
+- Get API key: https://console.cloud.google.com/
+- Set in .env: `GEMINI_API_KEY=AIza...`
 
-Public:
-POST   /api/public/submit/              - Anonymous submission
-GET    /api/public/track/{tracking_id}/ - Track complaint
-```
+The system automatically uses Groq if available, falling back to Gemini if needed.
 
----
-
-## 🧪 Testing
-
-### Run Tests
-
-```bash
-cd backend
-
-# Run all tests
-pytest
-
-# Run with coverage
-pytest --cov
-
-# Run specific test file
-pytest tests/test_auth.py
-
-# Run specific test
-pytest tests/test_auth.py::TestUserRegistration::test_register_success
-
-# Run with verbose output
-pytest -v
-```
-
-### Test Coverage
-
-Current test coverage: **70%+**
-
-Test files:
-- `tests/test_auth.py` - Authentication tests
-- `tests/test_complaints.py` - Complaint management tests
-- `tests/test_file_upload.py` - File upload tests
-
----
-
-## 📁 Project Structure
+## Project Structure
 
 ```
-UoG-Complaint-System/
+.
 ├── backend/
-│   ├── accounts/              # User management
-│   │   ├── models.py         # User, Campus, Department, etc.
-│   │   ├── views.py          # Auth endpoints
-│   │   ├── serializers.py    # Data validation
-│   │   └── utils.py          # Email, validation utilities
-│   ├── complaints/           # Complaint system
-│   │   ├── models.py         # Complaint, File, Comment, etc.
-│   │   ├── views.py          # Complaint endpoints
-│   │   ├── serializers.py    # Data validation
-│   │   ├── validators.py     # File validation
-│   │   └── ai_service.py     # Urgency analysis
-│   ├── config/               # Django configuration
-│   ├── tests/                # Test suite
-│   ├── manage.py
-│   └── requirements.txt
+│   ├── accounts/          # User authentication & management
+│   ├── complaints/        # Complaint handling & chatbot
+│   ├── config/           # Django settings
+│   └── manage.py
 ├── frontend/
 │   ├── src/
-│   │   ├── App.jsx
-│   │   ├── Dashboard.jsx
-│   │   ├── Login.jsx
-│   │   └── api.js
-│   ├── package.json
-│   └── vite.config.js
-├── docs/                     # Documentation
-├── README.md
-└── .gitignore
+│   │   ├── components/   # Reusable UI components
+│   │   ├── pages/        # Page components
+│   │   ├── context/      # React context (auth, language)
+│   │   └── i18n/         # Translation files
+│   └── package.json
+└── README.md
 ```
 
----
+## Development
 
-## 🔒 Security Features
+### Adding New Features
+1. Backend: Create/modify Django apps in `backend/`
+2. Frontend: Add components in `frontend/src/`
+3. Update API endpoints in `backend/complaints/urls.py`
+4. Add translations in `frontend/src/i18n/locales/`
 
-- **Password Security:** Argon2 hashing (most secure)
-- **Account Protection:** Automatic lockout after 5 failed attempts
-- **File Upload Security:** Size, type, and MIME validation
-- **Authenticated File Serving:** No direct file access
-- **Activity Logging:** All security events tracked
-- **Input Validation:** Server-side validation on all endpoints
-- **CORS Configuration:** Properly configured origins
-- **SQL Injection Protection:** ORM-based queries
+### Running Tests
+```bash
+# Backend tests
+cd backend
+python manage.py test
 
----
+# Frontend tests
+cd frontend
+npm test
+```
 
-## 🤝 Contributing
+## Deployment
 
-### Development Workflow
+### Backend (Django)
+1. Set `DEBUG=False` in .env
+2. Configure production database (PostgreSQL recommended)
+3. Set proper `ALLOWED_HOSTS`
+4. Use production WSGI server (Gunicorn/uWSGI)
+5. Configure static files serving
 
-1. Create a feature branch
-2. Make your changes
-3. Write tests
-4. Run tests and ensure they pass
-5. Update documentation
-6. Submit pull request
+### Frontend (React)
+1. Build production bundle: `npm run build`
+2. Serve `dist/` folder with Nginx/Apache
+3. Configure API proxy if needed
 
-### Code Style
+## Troubleshooting
 
-- **Backend:** Follow PEP 8 (use `black` and `flake8`)
-- **Frontend:** Follow ESLint configuration
-- **Commits:** Use conventional commit messages
+### Groq API Issues
+- Verify API key is correct
+- Check rate limits (6000/min free tier)
+- Test with: `python backend/test_groq_rest.py`
 
----
+### Email Not Sending
+- Verify SMTP credentials in .env
+- Check EMAIL_HOST and EMAIL_PORT
+- For Gmail, use App Password (not regular password)
 
-## 📝 License
+### Database Issues
+- Delete `db.sqlite3` and run migrations again
+- Run: `python manage.py migrate --run-syncdb`
 
-This project is developed for the University of Gondar.
+## Contributing
 
----
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Open Pull Request
 
-## 📞 Support
+## License
+
+This project is developed for University of Gondar.
+
+## Support
 
 For issues or questions:
-- Check the [documentation](./docs/)
-- Review [API documentation](http://127.0.0.1:8000/api/docs/)
-- Contact ICT Directorate
+- Email: support@uog.edu.et
+- Create an issue in the repository
+
+## Acknowledgments
+
+- University of Gondar IT Department
+- Groq AI for providing free AI API access
+- Google Gemini for AI capabilities
+- Open source community
 
 ---
 
-## 🎯 Project Status
-
-**Phase 1 (Backend):** ✅ 80% Complete  
-**Phase 2 (Frontend):** ⏳ Pending  
-**Phase 3 (Analytics):** ⏳ Pending  
-**Phase 4 (Testing & Docs):** 🔄 In Progress
-
----
-
-## 🙏 Acknowledgments
-
-- University of Gondar
-- ICT Directorate
-- All contributors
-
----
-
-**Built with ❤️ for University of Gondar**
+**Version:** 1.0.0  
+**Last Updated:** December 2025  
+**Status:** Production Ready
