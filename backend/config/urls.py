@@ -2,10 +2,23 @@
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.http import JsonResponse
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
 from complaints.views import AnonymousComplaintView, TrackComplaintView
 
+def health_check(request):
+    """Health check endpoint for Render"""
+    return JsonResponse({
+        'status': 'healthy',
+        'service': 'UoG Complaints System',
+        'version': '1.0.0'
+    })
+
 urlpatterns = [
+    # Health check for Render
+    path('', health_check, name='health-check'),
+    path('api/', health_check, name='api-health-check'),
+    
     path('admin/', admin.site.urls),
     
     # API Documentation
