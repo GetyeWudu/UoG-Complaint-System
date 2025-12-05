@@ -15,9 +15,8 @@ def health_check(request):
     })
 
 urlpatterns = [
-    # Health check for Render
-    path('', health_check, name='health-check'),
-    path('api/', health_check, name='api-health-check'),
+    # Health check endpoint for Render
+    path('health/', health_check, name='health-check'),
     
     path('admin/', admin.site.urls),
     
