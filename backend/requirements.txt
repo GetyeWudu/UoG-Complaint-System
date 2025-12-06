@@ -1,7 +1,7 @@
 # Core Django
 django>=5.0
-djangorestframework
-django-cors-headers
+djangorestframework>=3.14.0
+django-cors-headers>=4.3.0
 
 # Production Server & Static Files
 gunicorn>=21.2.0
