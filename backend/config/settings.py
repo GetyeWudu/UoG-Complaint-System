@@ -105,18 +105,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # CORS Configuration
-# In production, use specific origins from environment variable
-# In development, allow all origins for easier testing
-if DEBUG:
-    CORS_ALLOW_ALL_ORIGINS = True
-else:
-    CORS_ALLOW_ALL_ORIGINS = False
-    CORS_ALLOWED_ORIGINS = config(
-        'CORS_ALLOWED_ORIGINS', 
-        default='http://localhost:5173,http://localhost:3000', 
-        cast=Csv()
-    )
-
+# Temporarily allow all origins for debugging
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = [
     'accept',
@@ -138,9 +128,10 @@ CORS_ALLOW_METHODS = [
     'PUT',
 ]
 
+# CSRF trusted origins - read from environment or use defaults
 CSRF_TRUSTED_ORIGINS = config(
     'CSRF_TRUSTED_ORIGINS', 
-    default='http://localhost:5173,http://localhost:3000', 
+    default='http://localhost:5173,http://localhost:3000,https://uog-complaint-system.vercel.app', 
     cast=Csv()
 )
 
