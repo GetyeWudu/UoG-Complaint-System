@@ -172,6 +172,34 @@
     "placeholder": "Type your question...",
     "suggestedQuestions": "Suggested questions:",
     "footer": "Powered by AI • UoG Complaint System"
+  },
+  "aiAssistant": {
+    "title": "AI Writing Assistant",
+    "analyzing": "Analyzing...",
+    "hint": "Start typing your complaint to get AI-powered suggestions...",
+    "minCharacters": "Characters",
+    "minimum": "minimum",
+    "completeness": "Completeness",
+    "clarity": "Clarity",
+    "urgency": {
+      "low": "LOW",
+      "medium": "MEDIUM",
+      "high": "HIGH",
+      "critical": "CRITICAL"
+    },
+    "tone": {
+      "professional": "professional",
+      "angry": "angry",
+      "frustrated": "frustrated",
+      "neutral": "neutral"
+    },
+    "missingInfo": "Missing Information:",
+    "suggestions": "Suggestions:",
+    "detectedCategory": "Detected category",
+    "qualityCheck": "Quality Check",
+    "readyToSubmit": "Ready to Submit!",
+    "qualityMessage": "Your complaint meets quality standards and can be submitted.",
+    "improvementMessage": "Improve your complaint to meet submission requirements: Completeness ≥50%, Clarity ≥50%"
   }
 }
 

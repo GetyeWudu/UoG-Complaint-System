@@ -172,6 +172,34 @@
     "placeholder": "ጥያቄዎን ይጻፉ...",
     "suggestedQuestions": "የሚመከሩ ጥያቄዎች:",
     "footer": "በ AI የተጎለበተ • የUoG የቅሬታ ስርዓት"
+  },
+  "aiAssistant": {
+    "title": "AI የጽሑፍ ረዳት",
+    "analyzing": "በመተንተን ላይ...",
+    "hint": "የቅሬታዎን ጽሑፍ መጻፍ ይጀምሩ በ AI የተጎለበተ ምክሮችን ለማግኘት...",
+    "minCharacters": "ቁምፊዎች",
+    "minimum": "ዝቅተኛ",
+    "completeness": "ሙሉነት",
+    "clarity": "ግልጽነት",
+    "urgency": {
+      "low": "ዝቅተኛ",
+      "medium": "መካከለኛ", 
+      "high": "ከፍተኛ",
+      "critical": "አስቸኳይ"
+    },
+    "tone": {
+      "professional": "ሙያዊ",
+      "angry": "ቁጣ",
+      "frustrated": "ብስጭት",
+      "neutral": "ገለልተኛ"
+    },
+    "missingInfo": "የጎደሉ መረጃዎች:",
+    "suggestions": "ምክሮች:",
+    "detectedCategory": "የተለየ ምድብ",
+    "qualityCheck": "የጥራት ምርመራ",
+    "readyToSubmit": "ለመላክ ዝግጁ!",
+    "qualityMessage": "የቅሬታዎ ጥራት የመላክ መስፈርቶችን ያሟላል።",
+    "improvementMessage": "የቅሬታዎን ጥራት ያሻሽሉ የመላክ መስፈርቶችን ለማሟላት: ሙሉነት ≥50%, ግልጽነት ≥50%"
   }
 }
 
