@@ -1,0 +1,181 @@
+.ai-assistant {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 20px;
+}
+
+.ai-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.ai-icon {
+  font-size: 24px;
+}
+
+.ai-header h3 {
+  margin: 0;
+  font-size: 18px;
+  flex: 1;
+}
+
+.ai-loading {
+  font-size: 12px;
+  opacity: 0.8;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+}
+
+.ai-hint {
+  opacity: 0.9;
+  font-size: 14px;
+  margin: 0;
+}
+
+.ai-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Scores */
+.ai-scores {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.score-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.score-label {
+  font-size: 13px;
+  min-width: 90px;
+  font-weight: 500;
+}
+
+.score-bar {
+  flex: 1;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.score-fill {
+  height: 100%;
+  background: #4ade80;
+  transition: width 0.5s ease;
+  border-radius: 4px;
+}
+
+.score-fill.clarity {
+  background: #60a5fa;
+}
+
+.score-value {
+  font-size: 13px;
+  font-weight: 600;
+  min-width: 40px;
+  text-align: right;
+}
+
+/* Badges */
+.ai-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.urgency-critical {
+  background: #ef4444;
+}
+
+.urgency-high {
+  background: #f59e0b;
+}
+
+.urgency-medium {
+  background: #3b82f6;
+}
+
+.urgency-low {
+  background: #10b981;
+}
+
+.tone-professional {
+  background: #10b981;
+}
+
+.tone-angry {
+  background: #ef4444;
+}
+
+.tone-frustrated {
+  background: #f59e0b;
+}
+
+.tone-neutral {
+  background: #6b7280;
+}
+
+/* Sections */
+.ai-section {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.ai-section h4 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.ai-list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 13px;
+}
+
+.ai-list li {
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.missing-item {
+  color: #fbbf24;
+}
+
+.suggestion-item {
+  color: #a7f3d0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ai-assistant {
+    position: static;
+    margin-top: 20px;
+  }
+}

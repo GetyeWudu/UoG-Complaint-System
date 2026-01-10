@@ -9,6 +9,8 @@ from .dashboard_views import (
 from .approval_views import ApprovalWorkflowViewSet
 from .reporting_views import ReportingViewSet
 from .chatbot_views import chat_message, suggested_questions
+from .analysis_views import analyze_complaint_text
+from .sla_dashboard_views import sla_dashboard, manual_escalate_complaint, run_sla_check, sla_breach_alerts
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
@@ -56,6 +58,15 @@ urlpatterns = [
     # Chatbot
     path('chatbot/message/', chat_message, name='chatbot-message'),
     path('chatbot/suggestions/', suggested_questions, name='chatbot-suggestions'),
+    
+    # AI Analysis
+    path('analyze/', analyze_complaint_text, name='analyze-complaint'),
+    
+    # SLA Dashboard
+    path('sla/dashboard/', sla_dashboard, name='sla-dashboard'),
+    path('sla/alerts/', sla_breach_alerts, name='sla-alerts'),
+    path('sla/check/', run_sla_check, name='sla-check'),
+    path('<int:complaint_id>/escalate/', manual_escalate_complaint, name='manual-escalate'),
 ]
 
 urlpatterns += router.urls

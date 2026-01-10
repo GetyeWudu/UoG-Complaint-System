@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import api from '../api';
 import LanguageSwitcher from '../components/LanguageSwitcher';
+import AIAssistant from '../components/AIAssistant';
 
 function CreateComplaint() {
   const { t } = useTranslation();
@@ -101,12 +102,15 @@ function CreateComplaint() {
 
   return (
     <div className="min-h-screen bg-gray-100 py-8">
-      <div className="container mx-auto px-4 max-w-3xl">
-        <div className="bg-white rounded-lg shadow-lg p-8">
-          <div className="flex justify-between items-center mb-6">
-            <h1 className="text-3xl font-bold text-gray-800">{t('complaint.submitNew')}</h1>
-            <LanguageSwitcher />
-          </div>
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Main Form */}
+          <div className="lg:col-span-2">
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <div className="flex justify-between items-center mb-6">
+                <h1 className="text-3xl font-bold text-gray-800">{t('complaint.submitNew')}</h1>
+                <LanguageSwitcher />
+              </div>
 
           {error && (
             <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6">
@@ -215,6 +219,16 @@ function CreateComplaint() {
               </button>
             </div>
           </form>
+            </div>
+          </div>
+
+          {/* AI Assistant Sidebar */}
+          <div className="lg:col-span-1">
+            <AIAssistant 
+              text={formData.description}
+              category={formData.category}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -2570,3 +2570,56 @@ WARNING 2025-12-03 20:22:37,062 log Bad Request: /api/complaints/
 WARNING 2025-12-03 20:23:19,076 log Bad Request: /api/complaints/
 INFO 2025-12-03 20:26:51,953 views Complaint 32 updated: status=assigned, assigned_to=nonacademic (Non-academic Staff)
 INFO 2025-12-03 21:24:55,846 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 09:34:49,705 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-06 09:36:37,463 log Unauthorized: /api/auth/me/
+WARNING 2025-12-06 09:36:37,464 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-06 09:36:37,465 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-06 09:36:37,505 log Unauthorized: /api/auth/me/
+WARNING 2025-12-06 09:36:37,509 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2025-12-06 09:36:37,530 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2025-12-06 09:36:37,589 log Unauthorized: /api/auth/logout/
+WARNING 2025-12-06 09:36:37,647 log Unauthorized: /api/auth/logout/
+WARNING 2025-12-06 09:38:26,343 log Unauthorized: /api/auth/login/
+WARNING 2025-12-06 09:38:41,494 log Unauthorized: /api/auth/login/
+WARNING 2025-12-06 09:38:42,707 log Unauthorized: /api/auth/login/
+WARNING 2025-12-06 09:38:43,633 log Unauthorized: /api/auth/login/
+WARNING 2025-12-06 10:31:16,388 log Unauthorized: /api/auth/login/
+WARNING 2025-12-06 11:40:49,510 log Unauthorized: /api/auth/login/
+INFO 2025-12-06 11:43:33,596 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\config\settings.py changed, reloading.
+INFO 2025-12-06 11:43:36,588 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 21:34:25,628 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 21:38:01,677 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\urls.py changed, reloading.
+INFO 2025-12-06 21:38:04,031 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 21:38:17,709 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\urls.py changed, reloading.
+INFO 2025-12-06 21:38:19,695 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-06 21:43:54,132 log Unauthorized: /api/auth/login/
+WARNING 2025-12-06 21:44:02,799 log Unauthorized: /api/auth/login/
+WARNING 2025-12-06 21:44:03,718 log Unauthorized: /api/auth/login/
+WARNING 2025-12-06 21:44:04,672 log Unauthorized: /api/auth/login/
+WARNING 2025-12-06 21:44:05,490 log Unauthorized: /api/auth/login/
+WARNING 2025-12-06 21:44:15,699 log Unauthorized: /api/auth/login/
+WARNING 2025-12-06 21:44:19,149 log Unauthorized: /api/auth/login/
+WARNING 2025-12-06 21:44:19,991 log Unauthorized: /api/auth/login/
+INFO 2025-12-06 21:46:17,230 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-06 22:08:05,195 log Bad Request: /api/complaints/
+WARNING 2025-12-06 22:14:23,693 log Bad Request: /api/complaints/
+WARNING 2025-12-06 22:27:47,373 ai_service Language detection error: No module named 'googletrans'
+INFO 2025-12-06 22:27:47,577 views Complaint CMP-5AF3C338 created - Urgency: low, Language: en
+INFO 2025-12-06 22:27:50,519 utils Email sent successfully to student@uog.edu.et (type: submission_confirmation)
+INFO 2025-12-06 22:29:35,180 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\complaint_analyzer.py changed, reloading.
+INFO 2025-12-06 22:29:37,901 autoreload Watching for file changes with StatReloader
+INFO 2025-12-10 13:20:02,320 autoreload Watching for file changes with StatReloader
+INFO 2026-01-03 14:44:30,350 autoreload Watching for file changes with StatReloader
+INFO 2026-01-03 18:16:35,044 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\urls.py changed, reloading.
+INFO 2026-01-03 18:16:47,837 autoreload Watching for file changes with StatReloader
+INFO 2026-01-03 20:10:58,854 autoreload Watching for file changes with StatReloader
+INFO 2026-01-09 20:19:48,709 autoreload Watching for file changes with StatReloader
+INFO 2026-01-09 20:41:01,593 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\complaint_analyzer.py changed, reloading.
+INFO 2026-01-09 20:41:07,485 autoreload Watching for file changes with StatReloader
+INFO 2026-01-09 20:41:20,081 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\complaint_analyzer.py changed, reloading.
+INFO 2026-01-09 20:41:23,734 autoreload Watching for file changes with StatReloader
+INFO 2026-01-10 17:59:29,443 autoreload Watching for file changes with StatReloader
+INFO 2026-01-10 18:14:57,625 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\complaint_analyzer.py changed, reloading.
+INFO 2026-01-10 18:15:05,486 autoreload Watching for file changes with StatReloader
+INFO 2026-01-10 18:16:37,158 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\chatbot_service.py changed, reloading.
+INFO 2026-01-10 18:16:43,601 autoreload Watching for file changes with StatReloader
