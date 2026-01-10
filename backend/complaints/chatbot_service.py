@@ -14,15 +14,15 @@ class ChatbotService:
     """The most powerful AI chatbot for university support - Powered by Google Gemini REST API"""
     
     def __init__(self):
-        # Try Groq first (faster and more generous limits!)
-        self.groq_api_key = config('GROQ_API_KEY', default='')
+        # Use dedicated API key for chatbot to maximize rate limits
+        self.groq_api_key = config('GROQ_CHATBOT_API_KEY', default='')
         self.use_groq = bool(self.groq_api_key)
         
         # Fallback to Gemini
         self.gemini_api_key = config('GEMINI_API_KEY', default='')
         self.use_gemini = bool(self.gemini_api_key) and not self.use_groq
         
-        print(f"🔍 Groq API Key loaded: {'Yes' if self.groq_api_key else 'No'}")
+        print(f"🔍 Groq Chatbot API Key loaded: {'Yes' if self.groq_api_key else 'No'}")
         print(f"🔍 Gemini API Key loaded: {'Yes' if self.gemini_api_key else 'No'}")
         
         # Initialize Groq if available (PREFERRED - faster and better limits!)
