@@ -2623,3 +2623,7 @@ INFO 2026-01-10 18:14:57,625 autoreload C:\Users\admin\Documents\Cursor\Complain
 INFO 2026-01-10 18:15:05,486 autoreload Watching for file changes with StatReloader
 INFO 2026-01-10 18:16:37,158 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\chatbot_service.py changed, reloading.
 INFO 2026-01-10 18:16:43,601 autoreload Watching for file changes with StatReloader
+INFO 2026-01-10 19:02:48,561 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\chatbot_service.py changed, reloading.
+INFO 2026-01-10 19:02:54,576 autoreload Watching for file changes with StatReloader
+INFO 2026-01-10 19:06:57,096 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\complaints\urls.py changed, reloading.
+INFO 2026-01-10 19:06:59,994 autoreload Watching for file changes with StatReloader

@@ -14,8 +14,8 @@ class ChatbotService:
     """The most powerful AI chatbot for university support - Powered by Google Gemini REST API"""
     
     def __init__(self):
-        # Use dedicated API key for chatbot to maximize rate limits
-        self.groq_api_key = config('GROQ_CHATBOT_API_KEY', default='')
+        # Try Groq first (faster and more generous limits!)
+        self.groq_api_key = config('GROQ_API_KEY', default='')
         self.use_groq = bool(self.groq_api_key)
         
         # Fallback to Gemini
