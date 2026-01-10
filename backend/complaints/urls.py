@@ -9,6 +9,7 @@ from .dashboard_views import (
 from .approval_views import ApprovalWorkflowViewSet
 from .reporting_views import ReportingViewSet
 from .chatbot_views import chat_message, suggested_questions
+from .analysis_views import analyze_complaint_text
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
@@ -56,6 +57,9 @@ urlpatterns = [
     # Chatbot
     path('chatbot/message/', chat_message, name='chatbot-message'),
     path('chatbot/suggestions/', suggested_questions, name='chatbot-suggestions'),
+    
+    # AI Analysis
+    path('analyze/', analyze_complaint_text, name='analyze-complaint'),
 ]
 
 urlpatterns += router.urls
