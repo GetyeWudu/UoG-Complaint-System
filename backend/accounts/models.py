@@ -109,6 +109,8 @@ class ActivityLog(models.Model):
         ('2fa_enabled', '2FA Enabled'),
         ('2fa_disabled', '2FA Disabled'),
         ('oauth_linked', 'OAuth Account Linked'),
+        ('microsoft_login', 'Microsoft OAuth Login'),
+        ('microsoft_register', 'Microsoft OAuth Registration'),
         ('complaint_created', 'Complaint Created'),
         ('complaint_updated', 'Complaint Updated'),
         ('complaint_assigned', 'Complaint Assigned'),

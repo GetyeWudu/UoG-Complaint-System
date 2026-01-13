@@ -9,6 +9,7 @@ import CreateComplaintSimple from './pages/CreateComplaintSimple';
 import CreateComplaintDebug from './pages/CreateComplaintDebug';
 import TrackComplaint from './pages/TrackComplaint';
 import PasswordReset from './pages/PasswordReset';
+import MicrosoftCallback from './pages/MicrosoftCallback';
 import Chatbot from './components/Chatbot';
 import { AuthProvider, useAuth } from './context/AuthContext';
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
           <Route path="/password-reset" element={<PublicRoute><PasswordReset /></PublicRoute>} />
           <Route path="/track" element={<TrackComplaint />} />
+          <Route path="/auth/microsoft/callback" element={<MicrosoftCallback />} />
           
           {/* Protected Routes */}
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />

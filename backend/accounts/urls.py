@@ -16,6 +16,10 @@ urlpatterns = [
     path('oauth/callback/', views.OAuthCallbackView.as_view(), name='oauth-callback'),
     path('oauth/link/', views.OAuthLinkView.as_view(), name='oauth-link'),
     
+    # Microsoft OAuth
+    path('microsoft/login/', views.MicrosoftOAuthInitiateView.as_view(), name='microsoft-login'),
+    path('microsoft/callback/', views.MicrosoftOAuthCallbackView.as_view(), name='microsoft-callback'),
+    
     # User Profile
     path('me/', views.CurrentUserView.as_view(), name='current-user'),
     path('users/', views.UserListView.as_view(), name='user-list'),

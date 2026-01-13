@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 import LanguageSwitcher from '../components/LanguageSwitcher';
+import api from '../api';
 
 function Login() {
   const { t } = useTranslation();
@@ -10,6 +11,7 @@ function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [microsoftLoading, setMicrosoftLoading] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
 
@@ -27,6 +29,31 @@ function Login() {
     }
     
     setLoading(false);
+  };
+
+  const handleMicrosoftLogin = async () => {
+    setMicrosoftLoading(true);
+    setError('');
+
+    try {
+      // Get Microsoft authorization URL
+      const response = await api.get('/auth/microsoft/login/');
+      
+      if (response.data.authorization_url) {
+        // Store state for verification
+        sessionStorage.setItem('oauth_state', response.data.state);
+        
+        // Redirect to Microsoft login
+        window.location.href = response.data.authorization_url;
+      } else {
+        setError('Failed to initiate Microsoft login');
+      }
+    } catch (error) {
+      console.error('Microsoft login error:', error);
+      setError(error.response?.data?.error || 'Failed to connect to Microsoft');
+    } finally {
+      setMicrosoftLoading(false);
+    }
   };
 
   return (
@@ -104,6 +131,39 @@ function Login() {
             {loading ? t('login.loggingIn') : t('common.login')}
           </button>
         </form>
+
+        {/* Divider */}
+        <div className="mt-6 mb-6">
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-300" />
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-2 bg-white text-gray-500">Or continue with</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Microsoft Login Button */}
+        <button
+          onClick={handleMicrosoftLogin}
+          disabled={microsoftLoading || loading}
+          className="w-full bg-white border-2 border-gray-300 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-50 hover:border-gray-400 transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+        >
+          {microsoftLoading ? (
+            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-gray-700"></div>
+          ) : (
+            <>
+              <svg className="w-5 h-5" viewBox="0 0 23 23" fill="none">
+                <path d="M1 1h10v10H1z" fill="#f25022"/>
+                <path d="M12 1h10v10H12z" fill="#00a4ef"/>
+                <path d="M1 12h10v10H1z" fill="#ffb900"/>
+                <path d="M12 12h10v10H12z" fill="#7fba00"/>
+              </svg>
+              <span>{microsoftLoading ? 'Connecting...' : 'Sign in with Microsoft'}</span>
+            </>
+          )}
+        </button>
 
         <div className="mt-6 text-center space-y-3">
           <Link to="/password-reset" className="text-sm text-blue-700 hover:text-blue-800 hover:underline block font-medium">
