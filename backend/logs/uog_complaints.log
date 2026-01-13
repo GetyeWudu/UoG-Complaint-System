@@ -2665,3 +2665,14 @@ INFO 2026-01-13 15:01:28,820 autoreload Watching for file changes with StatReloa
 INFO 2026-01-13 15:03:24,021 microsoft_oauth Created new Microsoft user: GETYEWUD1
 INFO 2026-01-13 15:08:01,348 autoreload C:\Users\admin\Documents\Cursor\Complaint\backend\accounts\views.py changed, reloading.
 INFO 2026-01-13 15:08:08,756 autoreload Watching for file changes with StatReloader
+INFO 2026-01-13 16:36:35,469 autoreload Watching for file changes with StatReloader
+WARNING 2026-01-13 16:37:43,613 log Unauthorized: /api/auth/me/
+WARNING 2026-01-13 16:37:43,614 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2026-01-13 16:37:43,615 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2026-01-13 16:37:43,643 log Unauthorized: /api/complaints/dashboards/student/stats/
+WARNING 2026-01-13 16:37:43,645 log Unauthorized: /api/complaints/dashboards/student/recent_complaints/
+WARNING 2026-01-13 16:37:43,648 log Unauthorized: /api/auth/me/
+WARNING 2026-01-13 16:37:43,666 log Unauthorized: /api/auth/logout/
+WARNING 2026-01-13 16:37:43,705 log Unauthorized: /api/auth/logout/
+INFO 2026-01-13 16:38:08,539 microsoft_oauth Updated existing Microsoft user: GETACHEWKIB5
+INFO 2026-01-13 20:30:00,634 autoreload Watching for file changes with StatReloader
