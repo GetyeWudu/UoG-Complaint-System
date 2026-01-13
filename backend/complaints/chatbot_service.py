@@ -15,7 +15,8 @@ class ChatbotService:
     
     def __init__(self):
         # Use dedicated API key for chatbot to maximize rate limits
-        self.groq_api_key = config('GROQ_CHATBOT_API_KEY', default='')
+        # Fall back to general GROQ_API_KEY if GROQ_CHATBOT_API_KEY is not set
+        self.groq_api_key = config('GROQ_CHATBOT_API_KEY', default='') or config('GROQ_API_KEY', default='')
         self.use_groq = bool(self.groq_api_key)
         
         # Fallback to Gemini
