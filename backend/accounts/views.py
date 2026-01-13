@@ -6,6 +6,7 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from django.contrib.auth import get_user_model
 from django.utils import timezone
 from django.conf import settings
+from decouple import config
 from datetime import timedelta
 import secrets
 import logging
@@ -17,6 +18,7 @@ from .serializers import (
     CampusSerializer, DepartmentSerializer, ActivityLogSerializer
 )
 from .utils import send_email, get_client_ip
+from .microsoft_oauth import microsoft_oauth_service
 
 User = get_user_model()
 logger = logging.getLogger(__name__)
@@ -334,6 +336,191 @@ class PasswordChangeView(APIView):
             'message': 'Password changed successfully',
             'token': token.key
         }, status=status.HTTP_200_OK)
+
+
+class MicrosoftOAuthInitiateView(APIView):
+    """
+    Initiate Microsoft OAuth login
+    GET /api/auth/microsoft/login/
+    """
+    permission_classes = [permissions.AllowAny]
+    
+    def get(self, request):
+        try:
+            if not microsoft_oauth_service.is_configured():
+                return Response({
+                    'error': 'Microsoft OAuth is not configured. Please check your environment variables.'
+                }, status=status.HTTP_400_BAD_REQUEST)
+            
+            # Generate authorization URL
+            auth_data = microsoft_oauth_service.get_authorization_url()
+            
+            # Store state in session for verification
+            request.session['oauth_state'] = auth_data['state']
+            
+            return Response({
+                'authorization_url': auth_data['authorization_url'],
+                'state': auth_data['state']
+            })
+            
+        except Exception as e:
+            logger.error(f"Microsoft OAuth initiate error: {e}")
+            return Response({
+                'error': f'Failed to initiate Microsoft login: {str(e)}'
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+class MicrosoftOAuthCallbackView(APIView):
+    """
+    Handle Microsoft OAuth callback
+    Supports both GET (redirect from Microsoft) and POST (from frontend)
+    GET/POST /api/auth/microsoft/callback/
+    """
+    permission_classes = [permissions.AllowAny]
+    
+    def _process_callback(self, code, state, error, error_description, request):
+        """Process OAuth callback - shared logic for GET and POST"""
+        try:
+            # Check for OAuth errors
+            if error:
+                error_msg = error_description or error
+                return {
+                    'success': False,
+                    'error': f'Microsoft OAuth error: {error_msg}'
+                }
+            
+            if not code:
+                return {
+                    'success': False,
+                    'error': 'Authorization code is required'
+                }
+            
+            # Verify state parameter (CSRF protection)
+            # Note: We verify state from the request data since Django sessions
+            # may not persist across the Microsoft redirect. The frontend stores
+            # the state in sessionStorage and sends it back for verification.
+            # Additional validation: state should be a valid token format
+            if not state or len(state) < 20:
+                return {
+                    'success': False,
+                    'error': 'Invalid state parameter. Possible CSRF attack.'
+                }
+            
+            # Optional: Verify against stored state if session is available
+            # This provides additional security but won't fail if session is lost
+            stored_state = request.session.get('oauth_state')
+            if stored_state and stored_state != state:
+                logger.warning(f"State mismatch: stored={stored_state[:10]}..., received={state[:10]}...")
+                return {
+                    'success': False,
+                    'error': 'Invalid state parameter. Possible CSRF attack.'
+                }
+            
+            # Exchange code for token
+            token_data = microsoft_oauth_service.exchange_code_for_token(code, state)
+            access_token = token_data['access_token']
+            
+            # Get user info from Microsoft Graph
+            microsoft_user_data = microsoft_oauth_service.get_user_info(access_token)
+            
+            # Create or update user
+            user, created = microsoft_oauth_service.create_or_update_user(
+                microsoft_user_data,
+                ip_address=get_client_ip(request)
+            )
+            
+            # Create Django auth token
+            token, _ = Token.objects.get_or_create(user=user)
+            
+            # Log activity
+            action = 'microsoft_register' if created else 'microsoft_login'
+            ActivityLog.objects.create(
+                user=user,
+                action=action,
+                description=f'User {user.username} {"registered" if created else "logged in"} via Microsoft OAuth',
+                ip_address=get_client_ip(request),
+                user_agent=request.META.get('HTTP_USER_AGENT', ''),
+                metadata={
+                    'provider': 'microsoft',
+                    'microsoft_id': microsoft_user_data['id']
+                }
+            )
+            
+            # Clear OAuth state from session
+            if 'oauth_state' in request.session:
+                del request.session['oauth_state']
+            
+            return {
+                'success': True,
+                'token': token.key,
+                'user': UserSerializer(user).data,
+                'created': created,
+                'message': 'Successfully authenticated with Microsoft'
+            }
+            
+        except Exception as e:
+            logger.error(f"Microsoft OAuth callback error: {e}")
+            return {
+                'success': False,
+                'error': f'Microsoft authentication failed: {str(e)}'
+            }
+    
+    def get(self, request):
+        """Handle GET request from Microsoft redirect"""
+        from django.shortcuts import redirect
+        from django.conf import settings
+        from urllib.parse import urlencode
+        
+        code = request.GET.get('code')
+        state = request.GET.get('state')
+        error = request.GET.get('error')
+        error_description = request.GET.get('error_description')
+        
+        # Process the callback
+        result = self._process_callback(code, state, error, error_description, request)
+        
+        # Get frontend URL from settings
+        frontend_url = config('FRONTEND_URL', default='http://localhost:5173')
+        callback_url = f"{frontend_url}/auth/microsoft/callback"
+        
+        if result['success']:
+            # Redirect to frontend with token
+            # Store user data in session temporarily for frontend to retrieve
+            request.session['oauth_user_data'] = result['user']
+            request.session['oauth_token'] = result['token']
+            from urllib.parse import quote
+            # URL encode the token to handle special characters
+            encoded_token = quote(result['token'], safe='')
+            redirect_url = f"{callback_url}?token={encoded_token}&success=true"
+            return redirect(redirect_url)
+        else:
+            # Redirect to frontend with error
+            from urllib.parse import quote
+            error_msg = result.get('error', 'Authentication failed')
+            redirect_url = f"{callback_url}?error={quote(error_msg)}"
+            return redirect(redirect_url)
+    
+    def post(self, request):
+        """Handle POST request from frontend"""
+        code = request.data.get('code')
+        state = request.data.get('state')
+        error = request.data.get('error')
+        error_description = request.data.get('error_description')
+        
+        # Process the callback using shared logic
+        result = self._process_callback(code, state, error, error_description, request)
+        
+        if result['success']:
+            return Response({
+                'token': result['token'],
+                'user': result['user'],
+                'created': result.get('created', False),
+                'message': result.get('message', 'Successfully authenticated with Microsoft')
+            }, status=status.HTTP_200_OK)
+        else:
+            return Response({
+                'error': result.get('error', 'Microsoft authentication failed')
+            }, status=status.HTTP_400_BAD_REQUEST)
 
 
 class OAuthCallbackView(APIView):

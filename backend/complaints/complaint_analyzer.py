@@ -9,7 +9,7 @@ from decouple import config
 class ComplaintAnalyzer:
     def __init__(self):
         # Use dedicated API key for AI analysis to maximize rate limits
-        self.api_key = config('GROQ_API_KEY')  # Dedicated for AI analysis
+        self.api_key = config('GROQ_API_KEY', default='')  # Dedicated for AI analysis
         self.api_url = "https://api.groq.com/openai/v1/chat/completions"
         self.model = "llama-3.1-8b-instant"
     
@@ -38,6 +38,10 @@ class ComplaintAnalyzer:
                 'detected_category': None,
                 'urgency': 'low'
             }
+        
+        # If API key is not configured, return fallback analysis
+        if not self.api_key:
+            return self._get_fallback_analysis(text)
         
         prompt = self._build_analysis_prompt(text, category, language)
         
